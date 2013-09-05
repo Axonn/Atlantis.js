@@ -11,6 +11,7 @@ module AtlantisJS {
     export interface IRelatedVideo {
         title: string;
         img: string;
+        linkId: string;
     }
 
     export interface IRelatedVideoOptions {
@@ -18,7 +19,6 @@ module AtlantisJS {
         items: IRelatedVideo[];
         linkTarget: string;
         linkUrl: string;
-        linkId: string;
     }
 
     export interface IEndOfVideoOptions {
@@ -84,5 +84,13 @@ module AtlantisJS {
     export interface IPlayerOptions {
         logo: ILogo;
         overlays?: VjsPluginComponents.IOverlay[];
+        resolutionSwitching?: boolean;
+        socialSharing?: boolean;
+        googleAnalytics?: boolean;
+    }
+
+    export interface IPlayerInput {
+        videos: IVideo[];
+        options?: IPlayerOptions;
     }
 }

@@ -49,7 +49,7 @@ module.exports = function (grunt) {
 		separator: ';',
 	  },
 	  dist: {
-		src: ['bower_components/dustjs-linkedin/dist/dust-core-2.0.2.js','build/js/templates.js', 'bower_components/video.js/video.js', 'bower_components/videojs-plugin-components/vjsplugincomponents.js', 'bower_components/videojs-overlay-plugin/vjsoverlayplugin.js', 'bower_components/videojs-resolution-switching-plugin/vjsresolutionswitchingplugin.js', 'bower_components/videojs-social-sharing-plugin/vjssocialsharingplugin.js', 'build/js/atlantisTools.js'],
+		src: ['bower_components/dustjs-linkedin/dist/dust-core-2.0.2.js','build/js/templates.js', 'bower_components/video.js/video.js', 'bower_components/videojs-plugin-components/vjsplugincomponents.js', 'bower_components/videojs-google-analytics-plugin/vjsgoogleanalytics.js','bower_components/videojs-overlay-plugin/vjsoverlayplugin.js', 'bower_components/videojs-resolution-switching-plugin/vjsresolutionswitchingplugin.js', 'bower_components/videojs-social-sharing-plugin/vjssocialsharingplugin.js', 'build/js/atlantisTools.js'],
 		dest: 'build/js/atlantis.js',
 	  },
 	},

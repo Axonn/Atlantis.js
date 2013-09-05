@@ -13,8 +13,8 @@ module AtlantisJS {
             model: endOfVideoOptions,
             displayTimes: [{
                 type: "switch",
-                start: (duration) => duration ,
-                end: (duration) => duration
+                start: (duration) => { return duration } ,
+                end: (duration) => { return duration }
             }],
             events: {}
         }
@@ -24,7 +24,7 @@ module AtlantisJS {
 
     export function MapHotSpotToOverlay(hotspot: IHotspot, index: number) {
         var onCreateFuncs = [];
-        if (hotspot.linkTarget === "player") {
+        if (hotspot.linkTarget === "splash") {
             onCreateFuncs.push((args) => {
                 args.overlay.layer.container.children().click(() => {
                     args.player.pause();
@@ -75,7 +75,11 @@ module AtlantisJS {
                 name: template
             },
             model: hotspot.linkSplashData,
-            displayTimes: [],
+            displayTimes: [{
+                type: "switch",
+                start: function (duration) { return duration + 1; },
+                end: function (duration) { return duration + 1; }
+            }],
             events: {}
         }
 
@@ -167,21 +171,21 @@ module AtlantisJS {
             displayTimes: [],
             events: {
                 onCreate: [function (args) {
-                    args.poster.container.addClass("vjsInvisible");
-                    args.poster.container.children().click(function () {
+                    args.overlay.layer.container.addClass("vjsInvisible");
+                    args.overlay.layer.container.children().click(function () {
                         args.player.trigger("action", { name: "PauseCallToActionClick" });
                     });
 
-                    args.poster.container.click(function () {
+                    args.overlay.layer.container.click(function () {
                         args.player.play();
                     });
                     args.player.on("pause", function () {
-                        args.poster.container.children().addClass("vjsVisible");
-                        args.poster.container.removeClass("vjsInvisible");
+                        args.overlay.layer.container.children().addClass("vjsVisible");
+                        args.overlay.layer.container.removeClass("vjsInvisible");
                     });
                     args.player.on("play", function () {
-                        args.poster.container.addClass("vjsInvisible");
-                        args.poster.container.children().removeClass("vjsVisible");
+                        args.overlay.layer.container.addClass("vjsInvisible");
+                        args.overlay.layer.container.children().removeClass("vjsVisible");
                     });
                 }]}
         }
@@ -189,18 +193,18 @@ module AtlantisJS {
         return overlay;
     }
 
-    export function Init(videos: IVideo[], options: IPlayerOptions) {
-        var video: IVideo = videos[0];
+    export function Init(input: IPlayerInput) {
+        var video: IVideo = input.videos[0];
         var videoOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
         var playerOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
 
-        videoOverlays.push(MapEndOfVideoOptionsToOverlay(video.endOfVideo));
+        videoOverlays.push(MapEndOfVideoOptionsToOverlay(video.endOfVideoOptions));
         videoOverlays = videoOverlays.concat(MapHotSpotsToOverlays(video.hotspots));
         videoOverlays.push(MapAnnotationToOverlay(video.annotation));
         videoOverlays.push(MapTitleToOverlay(video.title));
         videoOverlays.push(MapPauseCalltoActionsToOverlay(video.pauseCallToAction));
 
-        playerOverlays.push(MapLogoToOverlay(options.logo));
+        playerOverlays.push(MapLogoToOverlay(input.options.logo));
 
         return new VjsPluginComponents.Player(
             _V_(video.id,{

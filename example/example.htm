@@ -3,16 +3,27 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>TypeScript HTML App</title>
+    <title>AtlantisJS</title>
 	<link rel="stylesheet" href="atlantis-js.min.css" type="text/css" />
+		<script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+        _gaq.push(['_trackPageview']);
 
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+		
+    </script>
 	    <script src="../bower_components/jquery/jquery.js" type="text/javascript"></script>
-        <script src="../build/js/atlantis.min.js" type="text/javascript"></script>
+        <script src="../build/js/atlantis.js" type="text/javascript"></script>
 
 	
 	</head>
 <body>
-    <h1>VideoJS w/ Google Analytics</h1>
+    <h1>AtlantisJS</h1>
 
     <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264"
         poster="http://video-js.zencoder.com/oceans-clip.png">
@@ -28,226 +39,74 @@
 	<button id="video2">Video 2</button>
     <div id="content">
 	        <script type="text/javascript">
-            var video1 = _V_("vid1",
-                {
-                'plugins': {
-                    'overlayPlugin': {
-						videoOverlays: [{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "vjsLogo",
-								name: "OverlayPlugin"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 0.5 },
-								end: function () { return 5 }
-							}]
-						}],
-					
-					
-						videoOverlays: [{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testTop",
-								name: "Wooooooo"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 0.5 },
-								end: function () { return 5 }
-							}]
+            var video1 = AtlantisJS.Init({
+				videos: [{
+					id: "vid1",
+					title: { text: "AtlantisJS" },
+					sources: [{
+						resolution: "240", 
+						type: "video/mp4", 
+						src:"http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing.mp4"
+					}],
+					endOfVideoOptions: {
+						callToAction: {
+							title: "78% of people watch online video every week",
+							subtitle: "Shouldn't you be engaging the growing audience?",
+							buttonText: "Press play on your marketing"
 						},
-						{
-							template: {
-								name: "test"
+						relatedVideos: {
+							linkTarget:"player",	
+							title: "Related Videos",
+							items: [
+								{	
+									img: "<?= $base ?>assets/video_poster/StudioSmall.jpg", 
+									title: "Studio Videos",
+									linkId: "related-studio"
 								},
-							model: {
-								class: "testTop",
-								name: "Splash!"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 5 },
-								end: function () { return 6.5 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
+								{	
+									img: "<?= $base ?>assets/video_poster/OnLocationSmall.jpg", 
+									title: "On Location Videos",
+									linkId: "related-on-location"
+									
 								},
-							model: {
-								class: "testTop",
-								name: "I hope he catches something"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 8 },
-								end: function () { return 12 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testBottom",
-								name: "Yeah me too!"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 10 },
-								end: function () { return 14 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testTop",
-								name: "Be sure to check out the call to action<br />at the end of this video."
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 15 },
-								end: function () { return 23 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testBottom",
-								name: "Sure."
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 24 },
-								end: function () { return 26 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testTop",
-								name: "These text boxes are just dust templates"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 29 },
-								end: function () { return 34 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testTop",
-								name: "Rendered on top of the video at specific points"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 34 },
-								end: function () { return 38 }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "testTop",
-								name: "you can even set them relative to the video's end."
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function () { return 38 },
-								end: function (duration) { return (duration - 2) }
-							}]
-						},
-						{
-							template: {
-								name: "test"
-								},
-							model: {
-								class: "calltoaction",
-								name: "<h1>Like call to actions?</h1><p><span style='color:#EEBBBB'>So do we!</span> That's why we built this plugin.<br /><span style='color:#FFE177'>Check out our videos live at <a href='http://www.reelcontent.co.uk'>www.reelcontent.co.uk</a></span></p><a href='http://www.reelcontent.co.uk'><button class='css3button'>Sure, why not?</button></a>"
-							},
-							displayTimes: [{
-								type: "switch",
-								start: function (duration) { return duration },
-								end: function (duration) { return duration }
-							}]
-						}]
+								{	
+									img: "<?= $base ?>assets/video_poster/AnimatedSmall.jpg", 
+									title: "Animation Videos",
+									linkId: "related-animation"
+								}
+							]
+						}
+					},
+					hotspots: [{
+						start: 5,
+						end: 10,
+						top: "100px",
+						left: "100px",
+						height: "20px",
+						width: "20px",
+						linkTarget: "splash",
+						linkSplashData: {
+							title: "",
+							subtitle: "",
+							img: "",
+							text: "",
+							url: "",
+							buttonText: ""
+						}
+					}],
+					annotation: {
+						text: "Example Video"
+					},
+					pauseCallToAction: {
+						text: "Read our white paper <a href='http://www.reelcontent.co.uk/resources/white-papers/maximising-muccess-with-online-video'>Maximising Success with Online Video</a>"
 					}
-                }
-                });
-				jQuery(document).ready(function(){				
-					jQuery("#video1").click(function(){
-						var player = new VjsPluginComponents.Player(video1);
-						var video = new VjsPluginComponents.Video([{
-							resolution: "240", 
-							type: "video/ogg", 
-							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
-						},{
-							resolution: "480", 
-							type: "video/ogg", 
-							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
-						}], function(src){ return player.src(src)});
-						video.overlays = [{
-									template: {
-										name: "test"
-										},
-									model: {
-										class: "testTop",
-										name: "Bowser Rawr!!!!"
-									},
-									displayTimes: [{
-										type: "switch",
-										start: function () { return 0 },
-										end: function () { return 15.1 }
-									}]
-								}];
-						player.setVideo(video);
-					});
-					
-					jQuery("#video2").click(function(){
-						var player = new VjsPluginComponents.Player(video1);
-						var video = new VjsPluginComponents.Video([{
-							resolution: "240", 
-							type: "video/ogg", 
-							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
-						},{
-							resolution: "480", 
-							type: "video/ogg", 
-							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
-						}], function(src){ return player.src(src)});
-						video.overlays = [{
-									template: {
-										name: "test"
-										},
-									model: {
-										class: "testTop",
-										name: "The WINRAR is YOU!!!!!!!!!!"
-									},
-									displayTimes: [{
-										type: "switch",
-										start: function () { return 20 },
-										end: function () { return 300.0 }
-									}]
-								}];
-						player.setVideo(video);
-					})
-				});;
+				}],
+				options: {
+					logo: {
+						url: "http://www.reelcontent.co.uk/assets/reelcontent/logo.png"
+					}
+				}
+			});
     </script>
 	</div>
 
