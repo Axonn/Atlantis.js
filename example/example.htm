@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+	<link rel="stylesheet" href="atlantis-js.min.css" type="text/css" />
+
+	    <script src="../bower_components/jquery/jquery.js" type="text/javascript"></script>
+        <script src="../build/js/atlantis.min.js" type="text/javascript"></script>
+
+	
+	</head>
+<body>
+    <h1>VideoJS w/ Google Analytics</h1>
+
+    <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264"
+        poster="http://video-js.zencoder.com/oceans-clip.png">
+        <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' data-resolution="240p">		
+        <source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" data-resolution="240p">
+        <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' data-resolution="480p">
+
+        <source src="http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv" type='video/ogg' data-resolution="480p">
+        <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' data-resolution="240p">
+        <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' data-resolution="480p">
+    </video>
+	<button id="video1">Video 1</button>
+	<button id="video2">Video 2</button>
+    <div id="content">
+	        <script type="text/javascript">
+            var video1 = _V_("vid1",
+                {
+                'plugins': {
+                    'overlayPlugin': {
+						videoOverlays: [{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "vjsLogo",
+								name: "OverlayPlugin"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 0.5 },
+								end: function () { return 5 }
+							}]
+						}],
+					
+					
+						videoOverlays: [{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "Wooooooo"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 0.5 },
+								end: function () { return 5 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "Splash!"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 5 },
+								end: function () { return 6.5 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "I hope he catches something"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 8 },
+								end: function () { return 12 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testBottom",
+								name: "Yeah me too!"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 10 },
+								end: function () { return 14 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "Be sure to check out the call to action<br />at the end of this video."
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 15 },
+								end: function () { return 23 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testBottom",
+								name: "Sure."
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 24 },
+								end: function () { return 26 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "These text boxes are just dust templates"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 29 },
+								end: function () { return 34 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "Rendered on top of the video at specific points"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 34 },
+								end: function () { return 38 }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "testTop",
+								name: "you can even set them relative to the video's end."
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function () { return 38 },
+								end: function (duration) { return (duration - 2) }
+							}]
+						},
+						{
+							template: {
+								name: "test"
+								},
+							model: {
+								class: "calltoaction",
+								name: "<h1>Like call to actions?</h1><p><span style='color:#EEBBBB'>So do we!</span> That's why we built this plugin.<br /><span style='color:#FFE177'>Check out our videos live at <a href='http://www.reelcontent.co.uk'>www.reelcontent.co.uk</a></span></p><a href='http://www.reelcontent.co.uk'><button class='css3button'>Sure, why not?</button></a>"
+							},
+							displayTimes: [{
+								type: "switch",
+								start: function (duration) { return duration },
+								end: function (duration) { return duration }
+							}]
+						}]
+					}
+                }
+                });
+				jQuery(document).ready(function(){				
+					jQuery("#video1").click(function(){
+						var player = new VjsPluginComponents.Player(video1);
+						var video = new VjsPluginComponents.Video([{
+							resolution: "240", 
+							type: "video/ogg", 
+							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
+						},{
+							resolution: "480", 
+							type: "video/ogg", 
+							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
+						}], function(src){ return player.src(src)});
+						video.overlays = [{
+									template: {
+										name: "test"
+										},
+									model: {
+										class: "testTop",
+										name: "Bowser Rawr!!!!"
+									},
+									displayTimes: [{
+										type: "switch",
+										start: function () { return 0 },
+										end: function () { return 15.1 }
+									}]
+								}];
+						player.setVideo(video);
+					});
+					
+					jQuery("#video2").click(function(){
+						var player = new VjsPluginComponents.Player(video1);
+						var video = new VjsPluginComponents.Video([{
+							resolution: "240", 
+							type: "video/ogg", 
+							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
+						},{
+							resolution: "480", 
+							type: "video/ogg", 
+							src:"http://people.mozilla.com/~cpearce/Patent_Absurdity_LQ_350kbit.ogv"
+						}], function(src){ return player.src(src)});
+						video.overlays = [{
+									template: {
+										name: "test"
+										},
+									model: {
+										class: "testTop",
+										name: "The WINRAR is YOU!!!!!!!!!!"
+									},
+									displayTimes: [{
+										type: "switch",
+										start: function () { return 20 },
+										end: function () { return 300.0 }
+									}]
+								}];
+						player.setVideo(video);
+					})
+				});;
+    </script>
+	</div>
+
+
+
+
+</body>
+</html>

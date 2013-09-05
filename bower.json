@@ -4,11 +4,11 @@
   "dependencies": {
     "jquery": "1.10.1",
     "dustjs-linkedin": "~2.0.2",
-    "videojs-plugin-components": "git://github.com/Axonn/videojs-resolution-switching-plugin",
-    "videojs-overlay-plugin": "git://github.com/Axonn/videojs-overlay-plugin",
+    "videojs-plugin-components": "git://github.com/Axonn/videojs-plugin-components#~0.2.1",
+    "videojs-overlay-plugin": "git://github.com/Axonn/videojs-overlay-plugin#~0.1.0",
     "videojs-poster-plugin": "git://github.com/Axonn/videojs-poster-plugin",
     "videojs-social-sharing-plugin": "git://github.com/Axonn/videojs-social-sharing-plugin",
-	"videojs-resolution-switching-plugin": "git://github.com/Axonn/videojs-resolution-switching-plugin"
+    "videojs-resolution-switching-plugin": "git://github.com/Axonn/videojs-resolution-switching-plugin"
   },
   "devDependencies": {
     "jquery": "1.10.1"
@@ -21,8 +21,5 @@
     "package.json",
     ".travis.yml",
     "Gruntfile.js"
-  ],
-  "resolutions": {
-    "videojs-plugin-components": "~0.1.1"
-  }
+  ]
 }

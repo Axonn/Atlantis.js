@@ -1,5 +1,16 @@
+declare function _V_(id: any, options?: _V_.Options, ready?: () => void): _V_.IPlayer;
+
 declare module _V_ {
-    function plugin(name: string, plugin: (options: any) => void ): void;
+    function plugin(name: string, plugin: (options: any) => void): void;
+
+    interface Options {
+        techOrder?: string[];
+        html5?: Object;
+        width?: number;
+        height?: number;
+        defaultVolume?: number;
+        children?: Object;
+    }
 
     export interface IComponent {
         id();
@@ -9,9 +20,9 @@ declare module _V_ {
         addChild(child);
         addChild(child, options);
         children(): any[];
-        on(type, fn: () => void );
-        off(type, fn: () => void );
-        one(type, fn: () => void );
+        on(type, fn: () => void);
+        off(type, fn: () => void);
+        one(type, fn: () => void);
         trigger(type, event?: any);
         show();
         hide();
@@ -27,14 +38,14 @@ declare module _V_ {
         constructor(player: any, options?: any);
         id();
         dispose();
-        createEl(type, props) : any;
+        createEl(type, props): any;
         el();
         addChild(child);
         addChild(child, options);
         children(): any[];
-        on(type, fn: () => void );
-        off(type, fn: () => void );
-        one(type, fn: () => void );
+        on(type, fn: () => void);
+        off(type, fn: () => void);
+        one(type, fn: () => void);
         trigger(type, event?: any);
         show();
         hide();
@@ -51,7 +62,7 @@ declare module _V_ {
     }
 
     export class MenuItem extends Component {
-        constructor(player: any, options:any);
+        constructor(player: any, options: any);
     }
 
     export class Button extends Component {
@@ -59,14 +70,14 @@ declare module _V_ {
 
     export interface IPlayer extends IComponent {
         play();
-        currentTime(time? : string);
+        currentTime(time?: string);
         src(source?: string);
         techName;
         currentSrc();
         duration(time?: number);
     }
 
-    export class Player extends Component implements IPlayer{
+    export class Player extends Component implements IPlayer {
         play();
         currentTime();
         src(source?: string);
