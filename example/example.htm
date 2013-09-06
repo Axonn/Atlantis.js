@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>AtlantisJS</title>
-	<link rel="stylesheet" href="atlantis-js.min.css" type="text/css" />
+	<link rel="stylesheet" href="../build/js/atlantisjs.css" type="text/css" />
 		<script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
@@ -25,7 +25,7 @@
 <body>
     <h1>AtlantisJS</h1>
 
-    <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264"
+    <video id="vid1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="264"
         poster="http://video-js.zencoder.com/oceans-clip.png">
         <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' data-resolution="240p">		
         <source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" data-resolution="240p">
@@ -80,8 +80,8 @@
 					hotspots: [{
 						start: 5,
 						end: 10,
-						top: "100px",
-						left: "100px",
+						top: 100,
+						left: 100,
 						height: "20px",
 						width: "20px",
 						linkTarget: "splash",

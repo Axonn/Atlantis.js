@@ -226,7 +226,15 @@ interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
     /*
         Static members of jQuery (those on $ and jQuery themselves)
     */
+
+interface IPath {
+    bezier(params: {}): void;
+}
+
     interface JQueryStatic {
+
+     path: IPath;
+
 
     /****
      AJAX

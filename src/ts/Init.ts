@@ -2,6 +2,7 @@
 ///<reference path='../definitions/VideoJS.d.ts'/>
 ///<reference path='IVideo.ts'/>
 ///<reference path='../../bower_components/videojs-plugin-components/vjsplugincomponents.d.ts'/>
+///<reference path='../../bower_components/videojs-poster-plugin/vjsposterplugin.d.ts'/>
 module AtlantisJS {
     export function MapEndOfVideoOptionsToOverlay(endOfVideoOptions: IEndOfVideoOptions) {
         var template = typeof endOfVideoOptions.template !== 'undefined' ? endOfVideoOptions.template : "ajsEndOfVideoDefault";
@@ -20,6 +21,15 @@ module AtlantisJS {
         }
 
         return overlay
+    }
+
+    export function ComputeHotspotPosition(time: number) {
+        var position = {
+            x: time,
+            y: time
+        };
+        
+        return position
     }
 
     export function MapHotSpotToOverlay(hotspot: IHotspot, index: number) {
@@ -47,7 +57,8 @@ module AtlantisJS {
                 height: hotspot.height,
                 width: hotspot.width,
                 linkTarget: hotspot.linkTarget,
-                linkUrl: hotspot.linkUrl
+                linkUrl: hotspot.linkUrl,
+                text: hotspot.text
             },
             displayTimes: [{
                 type: "switch",
@@ -59,6 +70,27 @@ module AtlantisJS {
                     jQuery('input.css3button').click(function () {
                         args.player.trigger("action", { name: "calltoactionclick" });
                     });
+                }],
+                "afterShow": [function (args) {
+
+                    var defaultAngle = Math.atan((hotspot.top - 110) / (hotspot.left - 540));
+
+                    jQuery(args.overlay.layer.container.children()[0]).animate({
+                        path: new jQuery.path.bezier({
+                            start: {
+                                x: hotspot.left,
+                                y: hotspot.top,
+                                angle: defaultAngle,
+                                length: 0.3333
+                            },
+                            end: {
+                                x: 540,
+                                y: 110,
+                                angle: defaultAngle,
+                                length: 0.3333
+                            }
+                        }),
+                    }, (hotspot.end - hotspot.start) * 1000)
                 }]
             }
         }
@@ -75,11 +107,7 @@ module AtlantisJS {
                 name: template
             },
             model: hotspot.linkSplashData,
-            displayTimes: [{
-                type: "switch",
-                start: function (duration) { return duration + 1; },
-                end: function (duration) { return duration + 1; }
-            }],
+            displayTimes: [],
             events: {}
         }
 
@@ -107,7 +135,7 @@ module AtlantisJS {
             },
             displayTimes: [{
                 type: "switch",
-                start: function () { return 0 },
+                start: function () { return 0.1 },
                 end: function (duration) { return duration - 0.1; }
             }],
             events: {}
@@ -116,10 +144,10 @@ module AtlantisJS {
         return overlay
     }
 
-    export function MapLogoToOverlay(logo: ILogo) {
+    export function MapLogoToPoster(logo: ILogo) {
         var template = typeof logo.template !== 'undefined' ? logo.template : "ajsLogoDefault";
 
-        var overlay: VjsPluginComponents.IOverlaySpecification = {
+        var overlay: Poster.IPosterSpecification = {
             template: {
                 name: template
             },
@@ -137,22 +165,26 @@ module AtlantisJS {
         return overlay
     }
 
-    export function MapTitleToOverlay(title: ITitle) {
+    export function MapTitleToPoster(title: ITitle) {
         var template = typeof title.template !== 'undefined' ? title.template : "ajsTitleDefault";
 
-        var overlay: VjsPluginComponents.IOverlaySpecification = {
+        var overlay: Poster.IPosterSpecification = {
             template: {
                 name: template
             },
             model: {
                 title: title.text
             },
-            displayTimes: [{
-                type: "switch",
-                start: function () { return 0 },
-                end: function (duration) { return duration - 0.1; }
-            }],
-            events: {}
+            events: {
+                onCreate: [function (args) {
+                    args.poster.container.addClass("vjsVisible");
+                    
+                    args.player.on("play", function () {
+                        args.poster.container.addClass("vjsInvisible");
+                        args.poster.container.removeClass("vjsVisible");
+                    });
+                }]
+            }
         }
 
         return overlay
@@ -168,7 +200,11 @@ module AtlantisJS {
             model: {
                 text: callToAction.text
             },
-            displayTimes: [],
+            displayTimes: [{
+                type: "switch",
+                start: function (duration) { return duration + 1; },
+                end: function (duration) { return duration + 1; }
+            }],
             events: {
                 onCreate: [function (args) {
                     args.overlay.layer.container.addClass("vjsInvisible");
@@ -196,15 +232,16 @@ module AtlantisJS {
     export function Init(input: IPlayerInput) {
         var video: IVideo = input.videos[0];
         var videoOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
+        var playerPosters: Poster.IPosterSpecification[] = [];
         var playerOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
 
         videoOverlays.push(MapEndOfVideoOptionsToOverlay(video.endOfVideoOptions));
         videoOverlays = videoOverlays.concat(MapHotSpotsToOverlays(video.hotspots));
         videoOverlays.push(MapAnnotationToOverlay(video.annotation));
-        videoOverlays.push(MapTitleToOverlay(video.title));
         videoOverlays.push(MapPauseCalltoActionsToOverlay(video.pauseCallToAction));
 
-        playerOverlays.push(MapLogoToOverlay(input.options.logo));
+        playerPosters.push(MapTitleToPoster(video.title));
+        playerPosters.push(MapLogoToPoster(input.options.logo));
 
         return new VjsPluginComponents.Player(
             _V_(video.id,{
@@ -218,6 +255,9 @@ module AtlantisJS {
                     'overlayPlugin': {
                         videoOverlays: videoOverlays,
                         playerOverlays: playerOverlays
+                    },
+                    'posterPlugin': {
+                        posters: playerPosters
                     }
                 }
             }));	

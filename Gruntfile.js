@@ -49,14 +49,21 @@ module.exports = function (grunt) {
 		separator: ';',
 	  },
 	  dist: {
-		src: ['bower_components/dustjs-linkedin/dist/dust-core-2.0.2.js','build/js/templates.js', 'bower_components/video.js/video.js', 'bower_components/videojs-plugin-components/vjsplugincomponents.js', 'bower_components/videojs-google-analytics-plugin/vjsgoogleanalytics.js','bower_components/videojs-overlay-plugin/vjsoverlayplugin.js', 'bower_components/videojs-resolution-switching-plugin/vjsresolutionswitchingplugin.js', 'bower_components/videojs-social-sharing-plugin/vjssocialsharingplugin.js', 'build/js/atlantisTools.js'],
+		src: ['bower_components/dustjs-linkedin/dist/dust-core-2.0.2.js','build/js/templates.js', 'bower_components/video.js/video.js', 'bower_components/videojs-plugin-components/vjsplugincomponents.js', 'bower_components/videojs-google-analytics-plugin/vjsgoogleanalytics.js','bower_components/videojs-overlay-plugin/vjsoverlayplugin.js', 'bower_components/videojs-poster-plugin/vjsposterplugin.js','bower_components/videojs-resolution-switching-plugin/vjsresolutionswitchingplugin.js', 'bower_components/videojs-social-sharing-plugin/vjssocialsharingplugin.js', 'bower_components/jquery.path/jquery.path.js', 'build/js/atlantisTools.js'],
 		dest: 'build/js/atlantis.js',
 	  },
 	},
 	uglify: {
 	  my_target: {
 		files: {
-		  'build/js/atlantis.min.js': ['build/js/atlantis.js']
+		  'build/js/atlantis.min.js': ['build/js/atlantis.js'],
+		}
+	  }
+	},
+	cssmin: {
+	  combine: {
+		files: {
+		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
 		}
 	  }
 	},
@@ -78,8 +85,15 @@ module.exports = function (grunt) {
           "build/js/templates.js": ["src/templates/**/*.dust"]
         }
       }
+	},
+	copy: {
+	  main: {
+		files: [
+		  {expand: true, cwd: 'src/', src: ['fonts/*'], dest: 'build/js/', filter: 'isFile'}, // includes files in path
+		]
+	  }
 	}
   });
   grunt.registerTask('test', ['typescript:test','jasmine']);   
-  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'compress']);
+  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress']);
 };

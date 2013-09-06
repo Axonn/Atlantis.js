@@ -1,15 +1,3 @@
-<div class="related-videos">
-	<h2>{model.title}</h2>
-	<div class='related-video-master2'>
-		<div class='related-video-master'>
-			{#model.related}
-			<a href="{link}">
-				<div class='related-video-container'>
-					<img alt='{title}' src='{img.src}'>
-					<p>{title}</p>
-				</div>
-			</a>
-			{/model.related}
-		</div>
-	</div>
+<div class="ajs-hotspot" style="width:{model.width};height:{model.height};">
+	{model.text}
 </div>

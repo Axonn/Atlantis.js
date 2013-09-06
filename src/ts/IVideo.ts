@@ -43,6 +43,7 @@ module AtlantisJS {
         left: number;
         height: number;
         width: number;
+        text: string;
         linkTarget: string;
         linkTemplate?: string;
         linkSplashData?: ISplashPageModel;
