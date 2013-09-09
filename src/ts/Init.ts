@@ -23,13 +23,23 @@ module AtlantisJS {
         return overlay
     }
 
-    export function ComputeHotspotPosition(time: number) {
-        var position = {
-            x: time,
-            y: time
-        };
+    export function ComputeHotspotPositionFromBezier(curve, start, end) {
+        return function (time: number) {
+            var boundedtime = (time < start) ? start : time;
+            var boundedtime = (boundedtime > end) ? end : boundedtime;
+            var t = (boundedtime - start) / (end - start);
+
+            var bezierCubic = function (a0, a1, a2, a3) {
+                return ((1 - t) * (1 - t) * (1 - t) * a0) + (3 * (1 - t) * (1 - t) * t * a1) + (3 * (1 - t) * t * t * a2) + (t * t * t * a3);
+            }
+
+            var position = {
+                x: bezierCubic(curve.p0.x, curve.p1.x, curve.p2.x, curve.p3.x),
+                y: bezierCubic(curve.p0.y, curve.p1.y, curve.p2.y, curve.p3.y)
+            };
         
-        return position
+            return position
+        }
     }
 
     export function MapHotSpotToOverlay(hotspot: IHotspot, index: number) {
@@ -44,7 +54,38 @@ module AtlantisJS {
             });
         };
 
+        onCreateFuncs.push(function (args) {
+            jQuery('input.css3button').click(function () {
+                args.player.trigger("action", { name: "hotspotclick" });
+            });
+
+            var position = positionCalc(hotspot.start);
+            var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
+
+            hotspotElement.css("left", position.x + "px");
+            hotspotElement.css("top", position.y + "px");
+        });
+
         var template = typeof hotspot.template !== 'undefined' ? hotspot.template : "ajsHotspotDefault";
+
+        var positionCalc = ComputeHotspotPositionFromBezier({
+            p0: {
+                x: 50,
+                y: 50
+            },
+            p1: {
+                x: 75,
+                y: 40
+            },
+            p2: {
+                x: 600,
+                y: 400
+            },
+            p3: {
+                x: 550,
+                y: 25
+            }
+        }, hotspot.start, hotspot.end);
 
         var overlay: VjsPluginComponents.IOverlaySpecification = {
             name: ("hotspot" + index),
@@ -62,35 +103,56 @@ module AtlantisJS {
             },
             displayTimes: [{
                 type: "switch",
-                start: function () { return hotspot.start },
-                end: function () { return hotspot.end }
+                start: () => { return hotspot.start },
+                end: () => { return hotspot.end }
             }],
             events: {
-                "onCreate": [function (args) {
-                    jQuery('input.css3button').click(function () {
-                        args.player.trigger("action", { name: "calltoactionclick" });
-                    });
-                }],
+                "onCreate": onCreateFuncs,
                 "afterShow": [function (args) {
+                    var nextPosition;
+                    var oldTime;
+                    
 
-                    var defaultAngle = Math.atan((hotspot.top - 110) / (hotspot.left - 540));
+                    args.player.on("timeupdate", () => {
+                        var time = args.player.currentTime();
+                        var timeDifference = 0.25;
+                        var position = positionCalc(time);
+                        var nextPosition = positionCalc(time + timeDifference);
+                        var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
+                        hotspotElement.clearQueue();
+                        
+                        hotspotElement.css("left", position.x + "px");
+                        hotspotElement.css("top", position.y + "px");
+                        var paused = args.player.paused();
+                        if (!args.player.paused()) {
+                            hotspotElement.animate({ top: nextPosition.y, left: nextPosition.x }, timeDifference * 1000, "linear");
+                        }
+                        oldTime = time;
+                    });
+                    args.player.on("pause", () => {
+                        var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
+                        hotspotElement.stop();
+                    });
 
-                    jQuery(args.overlay.layer.container.children()[0]).animate({
-                        path: new jQuery.path.bezier({
-                            start: {
-                                x: hotspot.left,
-                                y: hotspot.top,
-                                angle: defaultAngle,
-                                length: 0.3333
-                            },
-                            end: {
-                                x: 540,
-                                y: 110,
-                                angle: defaultAngle,
-                                length: 0.3333
-                            }
-                        }),
-                    }, (hotspot.end - hotspot.start) * 1000)
+
+                    //var defaultAngle = Math.atan((hotspot.top - 110) / (hotspot.left - 540));
+
+                    //jQuery(args.overlay.layer.container.children()[0]).animate({
+                    //    path: new jQuery.path.bezier({
+                    //        start: {
+                    //            x: hotspot.left,
+                    //            y: hotspot.top,
+                    //            angle: defaultAngle,
+                    //            length: 0.3333
+                    //        },
+                    //        end: {
+                    //            x: 540,
+                    //            y: 110,
+                    //            angle: defaultAngle,
+                    //            length: 0.3333
+                    //        }
+                    //    }),
+                    //}, (hotspot.end - hotspot.start) * 1000)
                 }]
             }
         }
@@ -108,7 +170,14 @@ module AtlantisJS {
             },
             model: hotspot.linkSplashData,
             displayTimes: [],
-            events: {}
+            events: {
+                onCreate: [(args) => {
+                    args.overlay.layer.container.find('.ajs-continue-video').click(() => {
+                        args.overlay.layer.container.removeClass("vjsVisible");
+                        args.player.play();
+                    });
+                }]
+            }
         }
 
         return overlay

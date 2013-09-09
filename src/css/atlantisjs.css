@@ -1742,8 +1742,120 @@ div.vjsVisible span.video-pause-call-to-action{
 }
 
 div.ajs-hotspot{
-	background:#000;
+	background:#aaa;
 	z-index:2;
 	position:relative;
+	opacity:0.7;
+}
+
+div.ajs-hotspot:hover{
+	background:#bbb;
+	z-index:2;
+	position:relative;
+	opacity:0.8;
+	cursor:pointer;
+}
+
+div.vjsVisible .ajs-hotspot-splash {
+	opacity: 1;
+
+}
+
+div.ajs-hotspot-splash{
+	position: absolute;
+	right:0;
+	left:0;
+	top:0;
+	bottom:0em;
+	display:block;
+    text-align: center;
+    font-size: 1.5em;
+    color: #222;
+	z-index:10;
+		background: rgb(32, 32, 32); /* Old browsers */
+     background: -moz-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141)) repeat scroll 0 0 transparent;
+    background: -webkit-gradient( linear, left top, left bottom, from(#5EAFC3), to(#176356));
+    background: -webkit-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
+    background: -o-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
+    background: -ms-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%); 
+	
+	cursor: default;
+
+    font-family: 'Aldrich', Verdana, Helvetica, sans-serif;
+    -moz-transition: opacity 0.3s ease-in 0s;
+    -o-transition: opacity 0.3s ease-in 0s;
+    -webkit-transition: opacity 0.3s ease-in 0s;
+    transition: opacity 0.3s ease-in 0s;
+	opacity: 0;
+}
+
+div.ajs-hotspot-splash img{
+	max-height: 7em;
+	max-width: 7em;
+	float:left;
+}
+
+div.ajs-hotspot-splash h1{
+	margin: 0.8em 0 0;
+	color:#F0EB79;
+	font-size:4em;
+	line-height: 1em;
+}
+
+div.ajs-hotspot-splash h2{
+	margin: 0em 0 1.6em;
+	color:#fff;
+	font-size:1.5em;
+	line-height: 1em;
+}
+
+div.ajs-hotspot-splash span{
+	color:#eee
+}
+
+div.ajs-hotspot-splash form{
+	display:inline-block;
+}
+
+div.ajs-hotspot-splash .ajs-splash-button1{
+	border:none;
+	padding: 0.3em 1em;
+	margin:0 0.6em;
+	border-radius:3px;
+	background:#CC3F50;
+	display:inline-block;
+	font-size:1.1em;
+	color:white;
+	cursor: pointer;
+	text-decoration:none;
+	vertical-align:bottom;
+	font-family: Verdana;
+}
+
+div.ajs-hotspot-splash .ajs-splash-button1:hover{
+	background:#DB4456;
+}
+
+div.ajs-hotspot-splash .ajs-splash-button2{
+	border:none;
+	padding: 0.3em 1em;
+	margin:0 0.6em;
+	border-radius:3px;
+	background:#4997C4;
+	display:inline-block;
+	font-size:1.1em;
+	color:white;
+	cursor: pointer;
+	vertical-align:bottom;
+	font-family: Verdana;
+}
+div.ajs-hotspot-splash .ajs-splash-button2:hover{
+	background:#54ABDD;
+}
+
+div.ajs-hotspot-splash .ajs-splash-button2:after{
+	content:'\E006';
+	font-family:Atlantis;
+	
 }
 

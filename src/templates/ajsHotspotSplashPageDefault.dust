@@ -1,3 +1,7 @@
-<div class="ajs-hotspot">
-	{model.text}
+<div class="ajs-hotspot-splash">
+	<div class="ajs-hotspot-splash-close" alt="close"></div>
+	<h1>{model.title|s}</h1>
+	<h2>{model.subtitle|s}</h2>
+	<a href="{model.url}" class="ajs-splash-button1">{model.button1Text}</a>
+	<button class="ajs-splash-button2 ajs-continue-video">{model.button2Text}</button>
 </div>
