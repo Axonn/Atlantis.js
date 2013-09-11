@@ -36,11 +36,17 @@ module AtlantisJS {
         buttonText: string;
     }
 
+    export interface IHotspotPosition {
+        duration: number;
+        transition: (percentage: number) => {
+            x: number;
+            y: number;
+        }
+    }
+
     export interface IHotspot {
         start: number;
-        end: number;
-        top: number;
-        left: number;
+        position: IHotspotPosition[]
         height: number;
         width: number;
         text: string;
@@ -73,6 +79,7 @@ module AtlantisJS {
 
     export interface IVideo {
         id: string;
+        aspectRatio?: string;
         title?: ITitle;
         sources: VjsPluginComponents.IVideoSource[];
         endOfVideoOptions?: IEndOfVideoOptions;

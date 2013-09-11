@@ -17,7 +17,7 @@ REQUIRED STYLES (be careful overriding)
 
 @font-face {
     font-family: 'Atlantis';
-    src: url('http://p.ninjacdn.co.uk/atlantisjs/0/fonts/atlantisjs.eot?#iefix') format('embedded-opentype'), url('http://p.ninjacdn.co.uk/atlantisjs/0/fonts/atlantisjs.svg') format('svg'), url('http://p.ninjacdn.co.uk/atlantisjs/0/fonts/atlantisjs.woff') format('woff'), url('http://p.ninjacdn.co.uk/atlantisjs/0/fonts/atlantisjs.ttf') format('truetype');
+    src: url('fonts/atlantisjs.eot?#iefix') format('embedded-opentype'), url('fonts/atlantisjs.svg') format('svg'), url('fonts/atlantisjs.woff') format('woff'), url('fonts/atlantisjs.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -1772,8 +1772,8 @@ div.ajs-hotspot-splash{
     font-size: 1.5em;
     color: #222;
 	z-index:10;
-		background: rgb(32, 32, 32); /* Old browsers */
-     background: -moz-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141)) repeat scroll 0 0 transparent;
+	background: rgb(32, 32, 32); /* Old browsers */
+    background: -moz-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141)) repeat scroll 0 0 transparent;
     background: -webkit-gradient( linear, left top, left bottom, from(#5EAFC3), to(#176356));
     background: -webkit-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
     background: -o-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
@@ -1797,7 +1797,7 @@ div.ajs-hotspot-splash img{
 
 div.ajs-hotspot-splash h1{
 	margin: 0.8em 0 0;
-	color:#F0EB79;
+	color:#F6EF4E;
 	font-size:4em;
 	line-height: 1em;
 }
@@ -1853,9 +1853,11 @@ div.ajs-hotspot-splash .ajs-splash-button2:hover{
 	background:#54ABDD;
 }
 
-div.ajs-hotspot-splash .ajs-splash-button2:after{
-	content:'\E006';
+div.ajs-hotspot-splash .ajs-splash-button2:before{
+	content:'\E007';
 	font-family:Atlantis;
-	
+	position:relative;
+	right: 0.4em;
+	top:0.05em;
 }
 
