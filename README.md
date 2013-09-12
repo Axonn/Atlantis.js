@@ -28,7 +28,7 @@ At ReelContent we have developed as much functionality as possible to work as pl
 
  Add the relevant source code to your webpage:
 
-    $ <video id="vid1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="266"
+    $ <video id="video1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="266"
     $    poster="http://video-js.zencoder.com/oceans-clip.png"> 	
     $    <source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing.mp4" type="video/mp4" data-resolution="240p">
     $ </video>
@@ -38,7 +38,7 @@ At ReelContent we have developed as much functionality as possible to work as pl
  ```
      var atlantisVideo = AtlantisJS.Init({
 				videos: [{
-					id: "vid1",
+					id: "video1",
 					title: { text: "AtlantisJS" },
 					aspectRatio: "320:133",
 					sources: [{
