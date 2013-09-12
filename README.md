@@ -118,68 +118,6 @@ At ReelContent we have developed as much functionality as possible to work as pl
 					pauseCallToAction: {
 						text: "Read our white paper <a href='http://www.reelcontent.co.uk/resources/white-papers/maximising-muccess-with-online-video'>Maximising Success with Online Video</a>"
 					}
-				},
-				{
-					id: "vid2",
-					title: { text: "AtlantisJS" },
-					aspectRatio: "16:9",
-					sources: [{
-						resolution: "240", 
-						type: "video/mp4", 
-						src:"http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing.mp4"
-					}],
-					endOfVideoOptions: {
-						callToAction: {
-							title: "78% of people watch online video every week",
-							subtitle: "Shouldn't you be engaging the growing audience?",
-							buttonText: "Press play on your marketing"
-						},
-						relatedVideos: {
-							linkTarget:"player",
-							title: "Related Videos",
-							items: [
-								{	
-									img: "<?= $base ?>assets/video_poster/StudioSmall.jpg", 
-									title: "Studio Videos",
-									linkId: "related-studio"
-								},
-								{	
-									img: "<?= $base ?>assets/video_poster/OnLocationSmall.jpg", 
-									title: "On Location Videos",
-									linkId: "related-on-location"
-									
-								},
-								{	
-									img: "<?= $base ?>assets/video_poster/AnimatedSmall.jpg", 
-									title: "Animation Videos",
-									linkId: "related-animation"
-								}
-							]
-						}
-					},
-					hotspots: [{
-						start: 10,
-						position: [{
-								duration: 4,
-								transition: AtlantisJS.Static(0.3,0.3)
-							}],
-						height: 0.4,
-						width: 0.4,
-						linkTarget: "splash",
-						linkSplashData: {
-							title: "<span>Atlantis</span>JS",
-							subtitle: "Web Video Player",
-							url: "https://github.com/Axonn/Atlantis.js",
-							button1Text: "GitHub",
-							button2Text: "Back to Video"
-						}
-					}],
-					annotation: {
-						text: "Why Video?"
-					},
-					pauseCallToAction: {
-						text: "Read our white paper <a href='http://www.reelcontent.co.uk/resources/white-papers/maximising-muccess-with-online-video'>Maximising Success with Online Video</a>"
-					}
 				}],
 				options: {
 					logo: {
