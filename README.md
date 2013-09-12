@@ -1,5 +1,7 @@
-Atlantis.js
-===========
+Atlantis.js (beta)
+==================
+
+[![Build Status](https://travis-ci.org/Axonn/Atlantis.js.png?branch=master)](https://travis-ci.org/Axonn/Atlantis.js)
 
 Atlantis.js = video.js + plugins + content marketing centric embed code
 
