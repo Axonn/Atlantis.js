@@ -18,7 +18,6 @@ after_success:
 - oldversion=$(git describe --abbrev=0 --tags)
 - git tag -a $version -m "new AtlantisJS Version released"
 - git push --tags
-- travis-artifacts upload --path build
 - if git checkout master; then git checkout -b master; fi
 - cp build/js/Atlantis.js Atlantis.js
 - cp build/js/Atlantis.d.ts Atlantis.d.ts
@@ -27,10 +26,12 @@ after_success:
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
 - git commit -am "add build files to master [ci skip]"
-- if [ "$version" != "$oldversion" ]; then git tag -a $version -m "new AtlantisJS Version released"; fi
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
-  > /dev/null 2>&1
-- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path test/atlantisjs/$version"
-- "travis-artifacts upload --path build/js/atlantis.js --target-path test/atlantisjs/$version"
+- if [ "$version" != "$oldversion" ]; then 
+- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path test/atlantisjs/$version/atlantis.js"
+- "travis-artifacts upload --path build/js/atlantisjs.css --target-path test/atlantisjs/$version/atlantisjs.css"
 - "travis-artifacts upload --path build/js/fonts --target-path test/atlantisjs/$version/fonts"
+- git tag -a $version -m "new AtlantisJS Version released"
+- fi
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1
+
   
