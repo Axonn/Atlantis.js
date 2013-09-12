@@ -13,7 +13,7 @@ env:
   - GH_PROJECT_NAME: Atlantis.js
   - secure: BaYLkWTAIfQC4agxluY+P0CWb8H0kiNLFPm4b1xkqdqo4FT0faQQDhbKidrU8sUYDfGjNmEJXN0vvQcQKFP5iiRsegaoApWIwhLafleEg0eqj4555kaWDtNqvEM8pXez/hFIFTA68PhXjyG7PzNSs+GTlyp9YaTy6iu7/3xzztE=
   - secure: JbBXuZ/FQ5WfHvdTK/7dckl6LQtvjlPOarz1BdoD7H5pCXkOxuqbdWkI79FskJiufI1d0/7zw0NAGvveJIlE8lDC3l5zBl7652cohqBbU3X4LDhWEE01DRf0CihtbGYYSqsyDaEjoDns86hIi6vTIRHwL0LtpzB9VizDIanNR+k=
-  - secure: VrbHAw3RuhPlnYh+jW8E//+kd9vpeyDvJ5Wm+90QHMAPmkHgcvYhgrijxkc+BBiXCwAg9q8gfr1szpyX/N8kNe3RYywitJmGuatJqG3k+CpFtOEWgXuWuyAJU6p+Cj6WQr6So9vRjMqJnaxVjvZR4kHvSk0UGesHdrHnJOUSFXw=
+  - secure: TkBHkxGu0uhJr9Y5gtD/1DL8jGKF8aOHgVLmjN/4SiqvwcYviQGUb/ew9DLIctu5J9xr3mMFePdEXSrJiOoqtt2owqbtYXuVH88Gnh9sY/Q4pqyo4UqE4E2BYiZnRLORRUi61uUJx3nis6kz/r9N+se7mfRIk0HZwLYrqlyOp5U=
 after_success:
 - version=$(head -n 1 version.txt)
 - oldversion=$(git describe --abbrev=0 --tags)
@@ -33,5 +33,6 @@ after_success:
 - git tag -a $version -m "new AtlantisJS Version released"
 - newversion=$(git describe --abbrev=0 --tags)
 - echo $newversion
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master --tags > /dev/null 2>&1
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
+  --tags > /dev/null 2>&1
 - fi
