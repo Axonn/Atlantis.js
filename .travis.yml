@@ -33,6 +33,5 @@ after_success:
 - git tag -a $version -m "new AtlantisJS Version released"
 - newversion=$(git describe --abbrev=0 --tags)
 - echo $newversion
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master --tags
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1 --tags
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master --tags > /dev/null 2>&1
 - fi
