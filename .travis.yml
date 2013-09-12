@@ -7,12 +7,13 @@ before_script:
 env:
   global:
   - ARTIFACTS_AWS_REGION=eu-west-1
-  - ARTIFACTS_S3_BUCKET=atlantisjs 
+  - ARTIFACTS_S3_BUCKET=atlantisjs
   - secure: EyQ+4g03UKWmWZCjWsVpsj1FgYI8YN2ocRBzAwAkgPhN0BAx8BrOvlbKVyHWN/jArNmP/RyTXDeNEb5H/nszgiwptV1K4R3Cvl2Rwy73OUiYMlI5P3BbCdiDcJXwl7YakmO3g+5UEaRjVcXaLq3/awc9h5gdgRA5CrS/CVO/LeM=
   - GH_OWNER: Axonn
   - GH_PROJECT_NAME: Atlantis.js
   - secure: BaYLkWTAIfQC4agxluY+P0CWb8H0kiNLFPm4b1xkqdqo4FT0faQQDhbKidrU8sUYDfGjNmEJXN0vvQcQKFP5iiRsegaoApWIwhLafleEg0eqj4555kaWDtNqvEM8pXez/hFIFTA68PhXjyG7PzNSs+GTlyp9YaTy6iu7/3xzztE=
   - secure: JbBXuZ/FQ5WfHvdTK/7dckl6LQtvjlPOarz1BdoD7H5pCXkOxuqbdWkI79FskJiufI1d0/7zw0NAGvveJIlE8lDC3l5zBl7652cohqBbU3X4LDhWEE01DRf0CihtbGYYSqsyDaEjoDns86hIi6vTIRHwL0LtpzB9VizDIanNR+k=
+  - secure: VrbHAw3RuhPlnYh+jW8E//+kd9vpeyDvJ5Wm+90QHMAPmkHgcvYhgrijxkc+BBiXCwAg9q8gfr1szpyX/N8kNe3RYywitJmGuatJqG3k+CpFtOEWgXuWuyAJU6p+Cj6WQr6So9vRjMqJnaxVjvZR4kHvSk0UGesHdrHnJOUSFXw=
 after_success:
 - version=$(head -n 1 version.txt)
 - oldversion=$(git describe --abbrev=0 --tags)
@@ -27,9 +28,10 @@ after_success:
 - git add -f atlantis.js
 - git add -f atlantisjs.css
 - git commit -am "add build files to master [ci skip]"
-- "travis-artifacts upload --path atlantis.js --target-path test/atlantisjs/$version"
-- "travis-artifacts upload --path atlantisjs.css --target-path test/atlantisjs/$version"
-- "travis-artifacts upload --path build/js/fonts --target-path test/atlantisjs/$version/fonts"
+- travis-artifacts upload --path atlantis.js --target-path test/atlantisjs/$version
+- travis-artifacts upload --path atlantisjs.css --target-path test/atlantisjs/$version
+- travis-artifacts upload --path build/js/fonts --target-path test/atlantisjs/$version/fonts
 - git tag -a $version -m "new AtlantisJS Version released"
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1 --tags
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
+  > /dev/null 2>&1 --tags
 - fi
