@@ -8,14 +8,24 @@ env:
   - secure: EyQ+4g03UKWmWZCjWsVpsj1FgYI8YN2ocRBzAwAkgPhN0BAx8BrOvlbKVyHWN/jArNmP/RyTXDeNEb5H/nszgiwptV1K4R3Cvl2Rwy73OUiYMlI5P3BbCdiDcJXwl7YakmO3g+5UEaRjVcXaLq3/awc9h5gdgRA5CrS/CVO/LeM=
   - GH_OWNER: Axonn
   - GH_PROJECT_NAME: Atlantis.js
+  - secure: BaYLkWTAIfQC4agxluY+P0CWb8H0kiNLFPm4b1xkqdqo4FT0faQQDhbKidrU8sUYDfGjNmEJXN0vvQcQKFP5iiRsegaoApWIwhLafleEg0eqj4555kaWDtNqvEM8pXez/hFIFTA68PhXjyG7PzNSs+GTlyp9YaTy6iu7/3xzztE=
+  - secure: JbBXuZ/FQ5WfHvdTK/7dckl6LQtvjlPOarz1BdoD7H5pCXkOxuqbdWkI79FskJiufI1d0/7zw0NAGvveJIlE8lDC3l5zBl7652cohqBbU3X4LDhWEE01DRf0CihtbGYYSqsyDaEjoDns86hIi6vTIRHwL0LtpzB9VizDIanNR+k=
 after_success:
+- version=$(head -n 1 version.txt)
+- git tag -a $version -m "new AtlantisJS Version released"
+- git push --tags
+- travis-artifacts upload --path build
 - if git checkout master; then git checkout -b master; fi
 - cp build/js/Atlantis.js Atlantis.js
-- cp build/js/Atlantis.d.ts Atlantis.d.ts 
+- cp build/js/Atlantis.d.ts Atlantis.d.ts
 - git add -f Atlantis.js
 - git add -f Atlantis.d.ts
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
 - git commit -am "add build files to master [ci skip]"
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
+  > /dev/null 2>&1
+- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path atlantisjs/$version"
+- "travis-artifacts upload --path build/js/atlantis.js --target-path atlantisjs/$version"
+- "travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts"
   

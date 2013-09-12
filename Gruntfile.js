@@ -68,7 +68,7 @@ module.exports = function (grunt) {
 	  }
 	},
 	compress: {
-	  main: {
+	  js: {
 		options: {
 		  mode: 'gzip'
 		},
@@ -76,7 +76,17 @@ module.exports = function (grunt) {
 		cwd: 'build/js/',
 		src: ['atlantis.min.js'],
 		dest: 'build/js/gzip',
-		ext: '.min.js'
+		ext: '.js'
+	  },
+	  css: {
+		options: {
+		  mode: 'gzip'
+		},
+		expand: true,
+		cwd: 'build/js/',
+		src: ['atlantisjs.css'],
+		dest: 'build/js/gzip',
+		ext: '.css'
 	  }
 	},
 	dustjs: {
@@ -95,5 +105,5 @@ module.exports = function (grunt) {
 	}
   });
   grunt.registerTask('test', ['typescript:test','jasmine']);   
-  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress']);
+  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress:js','compress:css']);
 };
