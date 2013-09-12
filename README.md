@@ -23,7 +23,7 @@ At ReelContent we have developed as much functionality as possible to work as pl
  Insert the necessary scripts:
 
 	$ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    $ <script src="http://atlantisjs.s3.amazonaws.com/atlantisjs/v0.9.1/atlantis.js" type="text/javascript"></script>
+    $ <script src="http://p.ninjacdn.co.uk/atlantisjs/v0.9.1/atlantis.js" type="text/javascript"></script>
     $ <link rel="stylesheet" href="../build/js/atlantisjs.css" type="text/css" />
 
  Add the relevant source code to your webpage:
