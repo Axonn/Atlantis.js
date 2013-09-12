@@ -6,6 +6,8 @@ before_script:
 - bower install
 env:
   global:
+  - ARTIFACTS_AWS_REGION=eu-west-1
+  - ARTIFACTS_S3_BUCKET=atlantisjs 
   - secure: EyQ+4g03UKWmWZCjWsVpsj1FgYI8YN2ocRBzAwAkgPhN0BAx8BrOvlbKVyHWN/jArNmP/RyTXDeNEb5H/nszgiwptV1K4R3Cvl2Rwy73OUiYMlI5P3BbCdiDcJXwl7YakmO3g+5UEaRjVcXaLq3/awc9h5gdgRA5CrS/CVO/LeM=
   - GH_OWNER: Axonn
   - GH_PROJECT_NAME: Atlantis.js
