@@ -22,14 +22,14 @@ after_success:
 - if git checkout master; then git checkout -b master; fi
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
-- git commit -am "add build files to master [ci skip]"
 - cp build/js/gzip/atlantis.js atlantis.js
 - cp build/js/gzip/atlantisjs.css atlantisjs.css
 - git add -f atlantis.js
 - git add -f atlantisjs.css
-- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path test/atlantisjs/$version/atlantis.js"
-- "travis-artifacts upload --path build/js/atlantisjs.css --target-path test/atlantisjs/$version/atlantisjs.css"
+- git commit -am "add build files to master [ci skip]"
+- "travis-artifacts upload --path atlantis.js --target-path test/atlantisjs/$version"
+- "travis-artifacts upload --path atlantisjs.css --target-path test/atlantisjs/$version"
 - "travis-artifacts upload --path build/js/fonts --target-path test/atlantisjs/$version/fonts"
 - git tag -a $version -m "new AtlantisJS Version released"
-- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1
+- git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1 --tags
 - fi
