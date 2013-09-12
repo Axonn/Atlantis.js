@@ -1,5 +1,5 @@
-Atlantis.js (beta)
-==================
+![Atlantis.js](http://atlantisjs.s3.amazonaws.com/test/atlantisjs/v0.9.1/atlantisLogo.png)
+==========================================================================================
 
 [![Build Status](https://travis-ci.org/Axonn/Atlantis.js.png?branch=master)](https://travis-ci.org/Axonn/Atlantis.js)
 
