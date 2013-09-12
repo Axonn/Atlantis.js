@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
+- gem install travis-artifacts
 - bower install
 env:
   global:
@@ -25,7 +26,7 @@ after_success:
 - git commit -am "add build files to master [ci skip]"
 - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
   > /dev/null 2>&1
-- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path atlantisjs/$version"
-- "travis-artifacts upload --path build/js/atlantis.js --target-path atlantisjs/$version"
-- "travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts"
+- "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path test/atlantisjs/$version"
+- "travis-artifacts upload --path build/js/atlantis.js --target-path test/atlantisjs/$version"
+- "travis-artifacts upload --path build/js/fonts --target-path test/atlantisjs/$version/fonts"
   
