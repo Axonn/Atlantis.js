@@ -15,6 +15,7 @@ env:
   - secure: JbBXuZ/FQ5WfHvdTK/7dckl6LQtvjlPOarz1BdoD7H5pCXkOxuqbdWkI79FskJiufI1d0/7zw0NAGvveJIlE8lDC3l5zBl7652cohqBbU3X4LDhWEE01DRf0CihtbGYYSqsyDaEjoDns86hIi6vTIRHwL0LtpzB9VizDIanNR+k=
 after_success:
 - version=$(head -n 1 version.txt)
+- oldversion=$(git describe --abbrev=0 --tags)
 - git tag -a $version -m "new AtlantisJS Version released"
 - git push --tags
 - travis-artifacts upload --path build
@@ -26,6 +27,7 @@ after_success:
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
 - git commit -am "add build files to master [ci skip]"
+- if [ "$version" != "$oldversion" ]; then git tag -a $version -m "new AtlantisJS Version released"; fi
 - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master
   > /dev/null 2>&1
 - "travis-artifacts upload --path build/js/gzip/atlantis.js --target-path test/atlantisjs/$version"
