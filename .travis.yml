@@ -18,8 +18,6 @@ after_success:
 - version=$(head -n 1 version.txt)
 - oldversion=$(git describe --abbrev=0 --tags)
 - if [ "$version" != "$oldversion" ]; then
-- git tag -a $version -m "new AtlantisJS Version released"
-- git push --tags
 - if git checkout master; then git checkout -b master; fi
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
@@ -33,5 +31,7 @@ after_success:
 - travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts
 - echo $version
 - git tag -a $version -m "new AtlantisJS Version released"
+- newversion=$(git describe --abbrev=0 --tags)
+- echo $newversion
 - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1 --tags
 - fi
