@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/Axonn/Atlantis.js.png?branch=master)](https://travis-ci.org/Axonn/Atlantis.js)
 
-Atlantis.js = video.js + plugins + content marketing centric embed code
+Atlantis.js = video.js + plugins + content marketing centric video embed code
 
 Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers.
 
