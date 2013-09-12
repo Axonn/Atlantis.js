@@ -31,6 +31,7 @@ after_success:
 - travis-artifacts upload --path atlantis.js --target-path atlantisjs/$version
 - travis-artifacts upload --path atlantisjs.css --target-path atlantisjs/$version
 - travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts
+- echo $version
 - git tag -a $version -m "new AtlantisJS Version released"
 - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1 --tags
 - fi
