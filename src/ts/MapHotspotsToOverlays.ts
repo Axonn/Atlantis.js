@@ -12,11 +12,11 @@ module AtlantisJS {
                 fraction = (t - cumulativeTime) / timeFuncs[i].duration;
                 cumulativeTime += timeFuncs[i].duration;
                 if (t < cumulativeTime) {
-                    return timeFuncs[i].transition(fraction);
+                    return timeFuncs[i].path(fraction);
                 }
             }
 
-            return timeFuncs[i - 1].transition(1);
+            return timeFuncs[i - 1].path(1);
         }
     }
 
@@ -101,8 +101,8 @@ module AtlantisJS {
                 name: template
             },
             model: {
-                top: hotspot.position[0].transition(0).y,
-                left: hotspot.position[0].transition(0).x,
+                top: hotspot.position[0].path(0).y,
+                left: hotspot.position[0].path(0).x,
                 height: "10px",
                 width: "10px",
                 linkTarget: hotspot.linkTarget,

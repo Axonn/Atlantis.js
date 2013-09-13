@@ -1,15 +1,5 @@
-<div class="related-videos">
-	<h2>{model.title}</h2>
-	<div class='related-video-master2'>
-		<div class='related-video-master'>
-			{#model.related}
-			<a href="{link}">
-				<div class='related-video-container'>
-					<img alt='{title}' src='{img.src}'>
-					<p>{title}</p>
-				</div>
-			</a>
-			{/model.related}
-		</div>
-	</div>
+<div class="video-pause-toggle">
+	<span class="video-pause-call-to-action">
+		{model.text|s}
+	</span>
 </div>

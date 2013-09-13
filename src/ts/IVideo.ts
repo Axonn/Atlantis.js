@@ -38,7 +38,7 @@ module AtlantisJS {
 
     export interface IHotspotPosition {
         duration: number;
-        transition: (percentage: number) => {
+        path: (percentage: number) => {
             x: number;
             y: number;
         }

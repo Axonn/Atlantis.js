@@ -48,7 +48,6 @@ REQUIRED STYLES (be careful overriding)
     /* Allow poster to be vertially aligned. */
     vertical-align: middle;
     /*  display: table-cell; */ /*This works in Safari but not Firefox.*/
-	cursor:pointer;
 }
 
     /* Playback technology elements expand to the width/height of the containing div. <video> or <object> */
@@ -958,7 +957,7 @@ div.vjs-control-bar div.vjs-sharing-button div
     width:auto;
     background: none;  
     font-family: Atlantis;
-	margin-top:0.2em;
+	margin-top:0.25em;
 }
 
 div.vjs-control-bar div.vjs-sharing-button .vjs-quality-text
@@ -1684,11 +1683,13 @@ span.video-pause-call-to-action{
 	font-size:2.0em;
 	position:relative;
 	top:0.2em;
+	z-index:4;
+	cursor:default;
 	font-family: 'Aldrich',sans-serif;
 	opacity:0;
 	transition: opacity .3s ease-in-out;
-   -moz-transition: opacity .3s ease-in-out;
-   -webkit-transition: opacity .3s ease-in-out;
+   -moz-transition: opacity .3s ease-in-out .2s;
+   -webkit-transition: opacity .3s ease-in-out .2s;
 }
 
 span.video-pause-call-to-action a:visited{
@@ -1710,7 +1711,7 @@ div.vjsInvisible span.video-pause-call-to-action{
 	opacity:0;
 }
 
-div.vjsVisible span.video-pause-call-to-action{
+.video-pause-toggle.vjsVisible span.video-pause-call-to-action{
 	opacity:1;
 }
 
