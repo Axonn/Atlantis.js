@@ -956,8 +956,9 @@ div.vjs-loading-spinner .ball8 {
 div.vjs-control-bar div.vjs-sharing-button div
 {
     width:auto;
-    background: none;  /*url("http://rc-video-encoding-samples.s3.amazonaws.com/videojsPluginTests/share.png") no-repeat scroll 7px 0px transparent;*/
+    background: none;  
     font-family: Atlantis;
+	margin-top:0.2em;
 }
 
 div.vjs-control-bar div.vjs-sharing-button .vjs-quality-text
@@ -1249,7 +1250,7 @@ div.vjs-control-bar div.vjs-quality-button div
 {
     width:auto;
     background-image:none;
-    padding-top: 0.3em;
+    padding-top: 0.5em;
 }
 
 div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
