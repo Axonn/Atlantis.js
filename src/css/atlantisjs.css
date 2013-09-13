@@ -267,7 +267,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
     .ajs-default-skin .vjs-rewind-control div {
         width: 19px;
         height: 16px;
-        background: url('video-js.png');
         margin: 0.5em auto 0;
     }
 
@@ -305,11 +304,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
     .ajs-default-skin .vjs-mute-control.vjs-vol-0 div:before {
         content: '\E005';
     }
-
-/*.vjs-default-skin .vjs-mute-control div { width: 22px; height: 16px; background: url('video-js.png') -75px -25px; margin: 0.5em auto 0; }*/
-/*.vjs-default-skin .vjs-mute-control.vjs-vol-0 div { background: url('video-js.png') 0 -25px; }
-.ajs-default-skin .vjs-mute-control.vjs-vol-1 div { background: url('video-js.png') -25px -25px; }
-.ajs-default-skin .vjs-mute-control.vjs-vol-2 div { background: url('video-js.png') -50px -25px; }*/
 
 
 .ajs-default-skin .vjs-volume-control {
@@ -487,7 +481,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
     cursor: pointer !important;
     float: right;
 }
-    /*.vjs-default-skin .vjs-fullscreen-control div { width: 16px; height: 16px; background: url('video-js.png') -50px 0; margin: 0.5em auto 0; }*/
 
     .ajs-default-skin .vjs-fullscreen-control div {
         width: 1em;
@@ -503,10 +496,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
         .ajs-default-skin .vjs-fullscreen-control div:before {
             content: '\E009';
         }
-
-.ajs-default-skin.vjs-fullscreen .vjs-fullscreen-control div {
-    background: url('video-js.png') -75px 0;
-}
 
 .ajs-default-skin.vjs-fullscreen .vjs-fullscreen-control div {
     width: 1em;
@@ -860,14 +849,7 @@ div.vjs-loading-spinner .ball8 {
 	border-right: 1px solid #111;
     background: #333;
 }
-    /* Button Icon */
-    .ajs-default-skin .vjs-menu-button div {
-        background: url('video-js.png') 0px -75px no-repeat;
-        width: 16px;
-        height: 16px;
-        margin: 0.25em auto 0;
-        padding: 0;
-    }
+
 
     /* Button Pop-up Menu */
     .ajs-default-skin .vjs-menu-button ul {
@@ -909,7 +891,6 @@ div.vjs-loading-spinner .ball8 {
 
         .ajs-default-skin .vjs-menu-button ul li.vjs-selected {
             text-decoration: underline;
-            background: url('video-js.png') -125px -50px no-repeat;
         }
 
             .ajs-default-skin .vjs-menu-button ul li:focus,
@@ -1307,12 +1288,10 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected
 {
-    background: #333 url('video-js.png') -125px -50px no-repeat;
     list-style: circle;
     text-decoration: none;
     color: #FFFFFF;
 	padding: 0.2em 0 0.2em 0.2em;
-	color:#FFE177;
 }
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:before
@@ -1321,12 +1300,11 @@ div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:before
 	font-family:"Atlantis";
 	font-size:0.7em;
 	padding:0 0.5em;
-	color:#FFE177;
+	color:#FFF;
 }
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:hover
 {
-    background: #BBB url('video-js.png') -125px -50px no-repeat;
     color: #111111;
 }
 
