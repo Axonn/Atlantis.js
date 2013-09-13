@@ -1671,8 +1671,17 @@ div.ajs-poster-mask{
 
 }
 
+
 .video-pause-toggle{
 	text-align:center;
+}
+
+.vjsOverlay.vjsVisible .video-pause-toggle{
+	opacity:1;
+}
+
+.vjsOverlay.video-pause-toggle{
+	opacity:0;
 }
 
 span.video-pause-call-to-action{
@@ -1680,13 +1689,12 @@ span.video-pause-call-to-action{
 	padding:0.2em 0.6em;
 	color:#FFE;	
 	border-radius: 0 0 0.2em 0.2em;
-	font-size:2.0em;
+	font-size:1.7em;
 	position:relative;
 	top:0.2em;
 	z-index:4;
 	cursor:default;
 	font-family: 'Aldrich',sans-serif;
-	opacity:0;
 	transition: opacity .3s ease-in-out;
    -moz-transition: opacity .3s ease-in-out .2s;
    -webkit-transition: opacity .3s ease-in-out .2s;
@@ -1766,12 +1774,7 @@ div.ajs-hotspot-splash{
     font-size: 1.5em;
     color: #222;
 	z-index:10;
-	background: rgb(32, 32, 32); /* Old browsers */
-    background: -moz-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141)) repeat scroll 0 0 transparent;
-    background: -webkit-gradient( linear, left top, left bottom, from(#5EAFC3), to(#176356));
-    background: -webkit-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
-    background: -o-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
-    background: -ms-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%); 
+	background: #000522;
 	
 	cursor: default;
 
@@ -1784,9 +1787,8 @@ div.ajs-hotspot-splash{
 }
 
 div.ajs-hotspot-splash img{
-	max-height: 7em;
-	max-width: 7em;
-	float:left;
+	display:block;
+	margin:4.5em auto;
 }
 
 div.ajs-hotspot-splash h1{

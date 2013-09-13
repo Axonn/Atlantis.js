@@ -56,8 +56,13 @@ module AtlantisJS {
         var playerPosters: Poster.IPosterSpecification[] = [];
         var playerOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
 
-        playerPosters.push(MapTitleToPoster(video.title));
-        playerPosters.push(MapLogoToPoster(input.options.logo));
+        if (typeof (video.title) !== "undefined") {
+            playerPosters.push(MapTitleToPoster(video.title));
+        }
+
+        if (typeof (input.options.logo) !== "undefined") {
+            playerPosters.push(MapLogoToPoster(input.options.logo));
+        }
 
         var player = new VjsPluginComponents.Player(
             _V_(video.id, {

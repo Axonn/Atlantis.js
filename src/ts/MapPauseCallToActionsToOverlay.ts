@@ -16,12 +16,11 @@ module AtlantisJS {
             },
             displayTimes: [{
                 type: "switch",
-                start: function (duration) { return duration + 1; },
-                end: function (duration) { return duration + 1; }
+                start: function (duration) { return 0.5 },
+                end: function (duration) { return duration - 0.5; }
             }],
             events: {
                 onCreate: [function (args) {
-                    args.overlay.layer.container.addClass("vjsVisible");
                     args.overlay.layer.container.children().click(function () {
                         args.player.trigger("action", { name: "PauseCallToActionClick" });
                     });
@@ -30,15 +29,16 @@ module AtlantisJS {
                         args.player.play();
                     });
                     args.player.on("pause", function () {
+                        args.overlay.layer.container.children().removeClass("vjsInvisible");
                         //args.overlay.layer.container.addClass("vjsVisible");
-                        args.overlay.layer.container.children().addClass("vjsVisible");
+                        //args.overlay.layer.container.children().addClass("vjsVisible");
                         
                         //args.overlay.layer.container.removeClass("vjsInvisible");
                     });
                     args.player.on("play", function () {
-                        //args.overlay.layer.container.addClass("vjsInvisible");
+                        args.overlay.layer.container.children().addClass("vjsInvisible");
                         //args.overlay.layer.container.removeClass("vjsVisible");
-                        args.overlay.layer.container.children().removeClass("vjsVisible");
+                        //args.overlay.layer.container.children().removeClass("vjsVisible");
                     });
                 }]}
         }

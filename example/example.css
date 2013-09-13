@@ -1,0 +1,22 @@
+html, body {
+	height:100%;
+	background:#000522
+}
+
+div.ajs-video-container {
+	margin-left:auto;
+	margin-right:auto;
+	width: 640px;
+	height:360px;
+}
+
+div.ajs-video-floater {
+	height:50%; 
+	position:relative;
+	margin-bottom:-180px;
+}
+
+.ajs-default-skin .vjs-big-play-button {
+	top:60%;
+
+}
