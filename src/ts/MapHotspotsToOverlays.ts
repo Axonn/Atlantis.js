@@ -69,6 +69,8 @@ module AtlantisJS {
             var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
             hotspotElement.css("width", newSize.x + "px");
             hotspotElement.css("height", newSize.y + "px");
+            hotspotElement.find(".ajs-parent-height").css("height", newSize.y + "px");
+            hotspotElement.find(".ajs-half-negative-parent-margin-bottom").css("margin-bottom",  (- newSize.y / 2) + "px");
         }
 
         onCreateFuncs.push(function (args) {

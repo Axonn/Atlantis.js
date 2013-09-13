@@ -104,6 +104,11 @@ module.exports = function (grunt) {
 	  }
 	}
   });
+  
+  grunt.registerTask('updatebower', function (){
+	var version = grunt.file.read("version.txt");
+	
+  }); 
   grunt.registerTask('test', ['typescript:test','jasmine']);   
   grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress:js','compress:css']);
 };

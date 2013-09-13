@@ -1,4 +1,7 @@
-![Atlantis.js](http://atlantisjs.s3.amazonaws.com/test/atlantisjs/v0.9.1/atlantisLogo.png)
+<p align="center">
+  <img src="http://p.ninjacdn.co.uk/test/atlantisjs/v0.9.1/atlantisLogo.png" alt="AtlantisJS"/>
+</p>
+
 ==========================================================================================
 
 [![Build Status](https://travis-ci.org/Axonn/Atlantis.js.png?branch=master)](https://travis-ci.org/Axonn/Atlantis.js)
@@ -35,7 +38,7 @@ At ReelContent we have developed as much functionality as possible to work as pl
 	
  Include the following javascript:
 
- ```
+```
      var atlantisVideo = AtlantisJS.Init({
 				videos: [{
 					id: "video1",
@@ -127,4 +130,4 @@ At ReelContent we have developed as much functionality as possible to work as pl
 			});
      </video>
 	 
-	 ```
+```

@@ -1,3 +1,5 @@
 <div class="ajs-hotspot" style="width:{model.width};height:{model.height};">
-	{model.text}
+		<div class="ajs-hotspot-insert">
+			{model.text}
+		</div>
 </div>

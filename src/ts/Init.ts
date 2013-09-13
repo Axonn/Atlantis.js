@@ -14,10 +14,21 @@ module AtlantisJS {
     export function BuildOverlays(video: IVideo) {
         var videoOverlays: VjsPluginComponents.IOverlaySpecification[] = [];
 
-        videoOverlays.push(MapEndOfVideoOptionsToOverlay(video.endOfVideoOptions));
-        videoOverlays = videoOverlays.concat(MapHotSpotsToOverlays(video.hotspots));
-        videoOverlays.push(MapAnnotationToOverlay(video.annotation));
-        videoOverlays.push(MapPauseCalltoActionsToOverlay(video.pauseCallToAction));
+        if (typeof (video.endOfVideoOptions) !== "undefined") {
+            videoOverlays.push(MapEndOfVideoOptionsToOverlay(video.endOfVideoOptions));
+        }
+
+        if (typeof (video.hotspots) !== "undefined") {
+            videoOverlays = videoOverlays.concat(MapHotSpotsToOverlays(video.hotspots));
+        }
+
+        if (typeof (video.annotation) !== "undefined") {
+            videoOverlays.push(MapAnnotationToOverlay(video.annotation));
+        }
+
+        if (typeof (video.pauseCallToAction) !== "undefined") {
+            videoOverlays.push(MapPauseCalltoActionsToOverlay(video.pauseCallToAction));
+        }
 
         return videoOverlays;
     }
