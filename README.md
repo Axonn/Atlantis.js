@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://p.ninjacdn.co.uk/test/atlantisjs/v0.9.1/atlantisLogo.png" alt="AtlantisJS"/>
+  <img src="http://p.ninjacdn.co.uk/atlantisjs/v0.9.2/atlantisLogo.png" alt="AtlantisJS"/>
 </p>
 
 ==========================================================================================
