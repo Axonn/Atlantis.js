@@ -60,7 +60,7 @@ module AtlantisJS {
             playerPosters.push(MapTitleToPoster(video.title));
         }
 
-        if (typeof (input.options.logo) !== "undefined") {
+        if (typeof (input.options) !== "undefined" && typeof (input.options.logo) !== "undefined") {
             playerPosters.push(MapLogoToPoster(input.options.logo));
         }
 
