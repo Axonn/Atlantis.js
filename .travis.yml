@@ -26,8 +26,8 @@ after_success:
 - git add -f atlantis.js
 - git add -f atlantisjs.css
 - git commit -am "add build files to master [ci skip]"
-- travis-artifacts upload --path atlantis.js --target-path atlantisjs/$version
-- travis-artifacts upload --path atlantisjs.css --target-path atlantisjs/$version
+- travis-artifacts upload --path atlantis.js --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path atlantisjs.css --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts
 - echo $version
 - git tag -a $version -m "new AtlantisJS Version released"
