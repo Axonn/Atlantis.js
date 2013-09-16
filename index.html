@@ -33,8 +33,6 @@
 <p align="center">
   <img src="http://p.ninjacdn.co.uk/atlantisjs/v0.9.2/atlantisLogo.png" alt="AtlantisJS"></p>
 
-<h1></h1>
-
 <p>Atlantis.js = video.js + plugins + content marketing centric video embed code</p>
 
 <p>Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers.</p>
@@ -70,7 +68,7 @@
 
 <pre><code>&lt;video id="video1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="360" poster="http://video-js.zencoder.com/oceans-clip.png"&gt;     
     &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360.mp4" type="video/mp4" data-resolution="360p"&gt;
-    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360p.ogg" type="video/mp4" data-resolution="360p"&gt;
+    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360p.ogg" type="video/ogg" data-resolution="360p"&gt;
 &lt;/video&gt;
 </code></pre>
 
@@ -137,9 +135,9 @@
 
 <pre><code>&lt;video id="video1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="360" poster="http://video-js.zencoder.com/oceans-clip.png"&gt;     
     &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360.mp4" type="video/mp4" data-resolution="360p"&gt;
-    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360p.ogg" type="video/mp4" data-resolution="360p"&gt;
+    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360p.ogg" type="video/ogg" data-resolution="360p"&gt;
     &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing.mp4" type="video/mp4" data-resolution="720p"&gt;
-    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing720p.ogg" type="video/mp4" data-resolution="720p"&gt;
+    &lt;source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing720p.ogg" type="video/ogg" data-resolution="720p"&gt;
 &lt;/video&gt;
 </code></pre>
 
@@ -216,6 +214,103 @@
 <li>Just a call to action</li>
 <li>Both</li>
 </ul><p>As such for the default we have three different templates depending on what options are given to the player.</p>
+
+<p>Lets take a look at an example embed:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+var atlantisVideo = AtlantisJS.Init({
+    videos: [{
+        id: "vid1",
+        endOfVideoOptions: {
+            relatedVideos: {
+                linkTarget:"player",
+                title: "Related Videos",
+                items: [
+                    {   
+                        img: "www.reelcontent.co.uk/assets/video_poster/StudioSmall.jpg", 
+                        title: "Studio Videos",
+                        linkId: "related-studio"
+                    },
+                    {   
+                        img: "www.reelcontent.co.uk/assets/video_poster/StudioSmall.jpg", 
+                        title: "On Location Videos",
+                        linkId: "related-on-location"
+
+                    },
+                    {   
+                        img: "www.reelcontent.co.uk/assets/video_poster/StudioSmall.jpg", 
+                        title: "Animation Videos",
+                        linkId: "related-animation"
+                    }
+                ]
+            }
+        }
+    }]
+});
+</code></pre>
+
+<h4>
+<a name="endofvideooptionstemplate" class="anchor" href="#endofvideooptionstemplate"><span class="octicon octicon-link"></span></a>endOfVideoOptions.template</h4>
+
+<p>Type: <code>String</code>
+Default: <code>various</code>
+Required: <code>No</code></p>
+
+<p>Name of the dust template to use to show the end of video screen. By default this varies on whether related videos and/or endOfVideoCallToActions are set.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideoslinktarget" class="anchor" href="#endofvideooptionsrelatedvideoslinktarget"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.linkTarget</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Option indicating whether the related images link to another url or to a different video already embedded in the player. Valid options: <code>player</code>,<code>external</code>.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideostitle" class="anchor" href="#endofvideooptionsrelatedvideostitle"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.title</h4>
+
+<p>Type: <code>String</code>
+Default: <code>Related Videos</code>
+Required: <code>No</code></p>
+
+<p>Sets the title for the related videos section.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideositemsimg" class="anchor" href="#endofvideooptionsrelatedvideositemsimg"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.items.img</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>Sets the image url for the related video.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideositemstitle" class="anchor" href="#endofvideooptionsrelatedvideositemstitle"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.items.title</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>Sets the title for the related video.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideositemslinkid" class="anchor" href="#endofvideooptionsrelatedvideositemslinkid"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.items.linkId</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>Sets the title of the video that the related video will point to. Only applicable if linkTarget is set to <code>player</code></p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideositemsurl" class="anchor" href="#endofvideooptionsrelatedvideositemsurl"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.items.url</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>Sets the Url of the video that the related video will point to. Only applicable if linkTarget is set to <code>external</code></p>
 
 <p><a name="call-to-actions"></a> </p>
 
