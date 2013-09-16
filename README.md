@@ -24,8 +24,8 @@ At ReelContent we have developed as much functionality as possible to work as pl
 + Resolution Switching
 + Social Media sharing
 + Related Videos
-+ Video Switching
-+ Call to Actions
++ Video Quality Switching
++ Call-to-Actions
 + Google Analytics Integration
 + Hotspots
 
@@ -57,4 +57,4 @@ Include the following javascript embed code at some point lower down the page:
 
 ## Going Further
 
-We are currently working on writing more documentation for AtlantisJS. If you wish to see how to use any of the myriad features Atlantis provides, the best thing to do would be to check out the example in examples/example.htm.
+We are currently working on writing more documentation for AtlantisJS. If you wish to see how to use the myriad of features Atlantis provides, the best thing would be to check out the example in examples/example.htm.
