@@ -61,7 +61,7 @@ module AtlantisJS {
         }
 
         if (typeof (input.options) !== "undefined" && typeof (input.options.logo) !== "undefined") {
-            playerPosters.push(MapLogoToPoster(input.options.logo));
+            playerOverlays.push(MapLogoToOverlay(input.options.logo));
         }
 
         var player = new VjsPluginComponents.Player(

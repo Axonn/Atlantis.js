@@ -73,7 +73,8 @@ module AtlantisJS {
     }
 
     export interface ILogo {
-        url: string;
+        src: string;
+        link: string;
         template?: string;
     }
 
