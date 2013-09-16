@@ -24,7 +24,7 @@ At ReelContent we have developed as much functionality as possible to work as pl
 + Resolution Switching
 + Social Media sharing
 + Related Videos
-+ Video Quality Switching
++ Video Switching
 + Call-to-Actions
 + Google Analytics Integration
 + Hotspots
