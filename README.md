@@ -8,12 +8,12 @@
 
 Atlantis.js = video.js + plugins + content marketing centric video embed code
 
-Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers.
+Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers. We still have a way to go.
 
 Another video player? Why not just use video.js + plugins?
 ----------------------------------------------------------
 
-Video.js is a fantastic piece of work and continues to grow and improve every day. While video.js is great for expansion and fiddling we found after developing a few websites that we needed something simple yet powerful. A single source file, a more declarative sytax, and a single platform brings us these things.
+[Video.js](http://www.videojs.com/) is a fantastic piece of work and continues to grow and improve every day. While video.js is great for expansion and fiddling we found after developing a few websites that we needed something simple yet powerful. A single source file, a more declarative sytax, and a single platform brings us these things.
 
 Narrowing the scope to content marketing also helps us greatly. Being able to use phrases such as 'call to action' and 'hotspots' allow us to convey ideas without confusing anyone. Atlantis.js is opinionated for better or for worse.
 
