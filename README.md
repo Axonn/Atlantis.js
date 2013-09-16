@@ -54,3 +54,7 @@ Include the following javascript embed code at some point lower down the page:
 	});
 </script>
 ```
+
+## Going Further
+
+We are currently working on writing more documentation for AtlantisJS. If you wish to see how to use any of the myriad features Atlantis provides, the best thing to do would be to check out the example in examples/example.htm.
