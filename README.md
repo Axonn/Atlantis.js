@@ -17,7 +17,7 @@ Video.js is a fantastic piece of work and continues to grow and improve every da
 
 Narrowing the scope to content marketing also helps us greatly. Being able to use phrases such as 'call to action' and 'hotspots' allow us to convey ideas without confusing anyone. Atlantis.js is opinionated for better or for worse.
 
-At ReelContent we have developed as much functionality as possible to work as plugins for video.js so if you don't want everything on offer here you're very much welcome free to go and use that functionality without using our player.
+At ReelContent we have developed as much functionality as possible to work as plugins for video.js so if you don't want everything on offer here you're very much free to use that functionality without using our player.
 
 ## Features
 
