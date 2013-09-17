@@ -1,6 +1,8 @@
 html, body {
 	height:100%;
-	background:#000522
+	background:#000522;
+	margin:0;
+	overflow:hidden;
 }
 
 div.ajs-video-container {

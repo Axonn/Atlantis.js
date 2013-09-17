@@ -1199,23 +1199,54 @@ div.calltoaction p {
 	font-size:1.2em;
 }
 
-input.css3button {
-    position: relative;
-    top: 2.5em;
-    font-family: 'Aldrich', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
-    color: #123d54;
-    padding: 4px 1em 2px;
-    height: 1.9em;
 
-	
+
+
+div.ajs-end-of-video-call-to-action-container {
+	position: absolute;
+	z-index:3;
+	background: #111;
+	top: 0;
+	bottom: 4.2em;
+	right: 0;
+	left: 0;
+}
+
+div.ajs-end-of-video-call-to-action {
+	position: absolute;
+	z-index:3;
+	text-align: left;
+	background: #58759B;
+	color:#fff;
+	top: .3em;
+	bottom: .3em;
+	right: 0;
+	font-family: Courier New;
+	left: 0;
+	font-size: 1.9em;
+	padding: 2em 4em;
+}
+
+a.ajs-call-to-action-button {
+    position: relative;
+    top: 1.4em;
+    font-family: Courier New;
+    font-size: 0.8em;
+    color: #123d54;
+    padding: 4px 1em 0px;
+    height: 1.3em;
+	text-decoration:none;
+	margin: 0 auto;
+	display:block;
+	width: 7em;
+	text-align: center;
     background: #FFDB56; /* Old browsers */
     background: -moz-linear-gradient( top, #FFDB56 0%, #FFE177);
     background: -webkit-gradient( linear, left top, left bottom, from(#FFDB56), to(#FFE177));
     background: -webkit-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);
     background: -o-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);
     background: -ms-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);	
-	
+	font-weight:bold;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -1223,14 +1254,12 @@ input.css3button {
     -moz-box-shadow: 0px 1px 5px rgba(000,000,000,0.5), inset 0px 1px 0px rgba(255,255,255,1);
     -webkit-box-shadow: 0px 1px 5px rgba(000,000,000,0.5), inset 0px 1px 0px rgba(255,255,255,1);
     box-shadow: 0px 1px 5px rgba(000,000,000,0.5), inset 0px 1px 0px rgba(255,255,255,1);
-    -webkit-text-shadow: 0px -1px 0px rgba(45,37,37,0.7), 0px 1px 0px rgba(239,194,194,0.3);
-    text-shadow: 0px -1px 0px rgba(45,37,37,0.7), 0px 1px 0px rgba(239,194,194,0.3);
 }
 
-    input.css3button:hover {
+    a.ajs-call-to-action-button:hover {
         cursor: pointer;
-        background: -moz-linear-gradient( top, #FFE177 0%, #FFDB56);
-        background: -webkit-gradient( linear, left top, left bottom, from(#FFC656), to(#FFC677));
+        background: -moz-linear-gradient( top, #FACF34 0%, #FCD858);
+        background: -webkit-gradient( linear, left top, left bottom, from(#FACF34), to(#FCD858));
     }
 
 /*#source /local/plugins/resolutionswitching/style/resolution.css */
@@ -1855,5 +1884,12 @@ div.ajs-hotspot-splash .ajs-splash-button2:before{
 	position:relative;
 	right: 0.4em;
 	top:0.05em;
+}
+
+div.ajs-logo{
+	z-index:20;
+	position: relative;
+	top:25px;
+	left: 25px;
 }
 

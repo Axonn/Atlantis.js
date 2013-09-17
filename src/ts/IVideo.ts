@@ -5,7 +5,10 @@ module AtlantisJS {
     export interface IEndOfVideoCallToAction {
         title: string;
         subtitle: string;
-        buttonText: string;
+        button: {
+            text: string;
+            link: string;
+        }
     }
 
     export interface IRelatedVideo {

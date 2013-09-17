@@ -1,0 +1,7 @@
+<div class="ajs-end-of-video-call-to-action-container">
+	<div class="ajs-end-of-video-call-to-action">
+		<h2>{model.callToAction.title|s}</h2>
+		<p>{model.callToAction.subtitle|s}</p>
+		<a class="ajs-call-to-action-button" href="{model.callToAction.button.link|s}">{model.callToAction.button.text|s}</a>
+	</div>
+</div>

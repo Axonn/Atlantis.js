@@ -6,7 +6,17 @@
 module AtlantisJS {
 
     export function MapEndOfVideoOptionsToOverlay(endOfVideoOptions: IEndOfVideoOptions) {
-        var template = typeof endOfVideoOptions.template !== 'undefined' ? endOfVideoOptions.template : "ajsEndOfVideoDefault";
+        var template;
+
+        if (typeof endOfVideoOptions.template !== 'undefined') {
+            template = endOfVideoOptions.template;
+        } else if (typeof endOfVideoOptions.relatedVideos == 'undefined') {
+            template = "ajsEndOfVideoCallToActionDefault";
+        } else if (typeof endOfVideoOptions.callToAction == 'undefined') {
+            template = "ajsEndOfVideoRelatedVideosDefault";
+        } else {
+            template = "ajsEndOfVideoDefault";
+        }
 
         var overlay: VjsPluginComponents.IOverlaySpecification = {
             template: {
@@ -15,7 +25,7 @@ module AtlantisJS {
             model: endOfVideoOptions,
             displayTimes: [{
                 type: "switch",
-                start: (duration) => { return duration } ,
+                start: (duration) => { return duration },
                 end: (duration) => { return duration }
             }],
             events: {}
