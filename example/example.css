@@ -10,6 +10,7 @@ div.ajs-video-container {
 	margin-right:auto;
 	width: 640px;
 	height:360px;
+	position:relative;
 }
 
 div.ajs-video-floater {

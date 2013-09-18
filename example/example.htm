@@ -25,7 +25,7 @@
 		<div class="ajs-video-floater">
 		</div>
 		<div class="ajs-video-container">
-			<video id="vid1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="360"
+			<video id="vid1" class="ajs-default-skin atlantis-js" controls preload="none" width="640" height="360"
 				poster="atlantisLogoSplash.png"> 
 				<source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360.mp4" type='video/mp4' data-resolution="360p">	
 				<source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing.mp4" type="video/mp4" data-resolution="720p">
@@ -65,7 +65,10 @@
 						callToAction: {
 							title: "78% of people watch online video every week",
 							subtitle: "Shouldn't you be engaging the growing audience?",
-							buttonText: "Press play on your marketing"
+							button: {
+								link: "https://github.com/Axonn/Atlantis.js",
+								text: "Get Started"
+							}
 						},
 						relatedVideos: {
 							linkTarget:"player",
