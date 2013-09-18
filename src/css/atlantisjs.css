@@ -23,8 +23,7 @@ The control icons are from a custom font. Each icon corresponds to a character
   cursor: pointer;
   padding: 0;
   /* background-color-with-alpha */
-  background-color: #333333;
-  background-color: rgba(51, 51, 51, 0.9);
+  background-color: #ccc;
 }
 .ajs-default-skin .vjs-slider:focus {
   /* box-shadow */
@@ -73,8 +72,7 @@ The default control bar that is a container for most of the controls.
   /* Height includes any margin you want above or below control items */
   height: 3.0em;
   /* background-color-with-alpha */
-  background-color: #07141e;
-  background-color: rgba(7, 20, 30, 0.7);
+  background-color: #222;
   z-index:4;
 }
 /* Show the control bar only once the video has started playing */
@@ -144,7 +142,6 @@ fonts to show/hide properly.
 /* Replacement for focus outline */
 .ajs-default-skin .vjs-control:focus:before,
 .ajs-default-skin .vjs-control:hover:before {
-  text-shadow: 0em 0em 1em #ffffff;
 }
 .ajs-default-skin .vjs-control:focus {
   /*  outline: 0; */
@@ -172,10 +169,10 @@ fonts to show/hide properly.
   cursor: pointer;
 }
 .ajs-default-skin .vjs-play-control:before {
-  content: "\e001";
+  content: "\e006";
 }
 .ajs-default-skin.vjs-playing .vjs-play-control:before {
-  content: "\e002";
+  content: "\e008";
 }
 /* Volume/Mute
 -------------------------------------------------------------------------------- */
@@ -186,11 +183,11 @@ fonts to show/hide properly.
 }
 .ajs-default-skin .vjs-mute-control:before,
 .ajs-default-skin .vjs-volume-menu-button:before {
-  content: "\e006";
+  content: "\e001";
 }
 .ajs-default-skin .vjs-mute-control.vjs-vol-0:before,
 .ajs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
-  content: "\e003";
+  content: "\e005";
 }
 .ajs-default-skin .vjs-mute-control.vjs-vol-1:before,
 .ajs-default-skin .vjs-volume-menu-button.vjs-vol-1:before {
@@ -198,7 +195,7 @@ fonts to show/hide properly.
 }
 .ajs-default-skin .vjs-mute-control.vjs-vol-2:before,
 .ajs-default-skin .vjs-volume-menu-button.vjs-vol-2:before {
-  content: "\e005";
+  content: "\e003";
 }
 .ajs-default-skin .vjs-volume-control {
   width: 5em;
@@ -216,11 +213,12 @@ fonts to show/hide properly.
   position: absolute;
   top: 0;
   left: 0;
-  height: 0.5em;
-  background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+  height: 0.6em;
+  background: #58759B ;
 }
 .ajs-default-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
+  display:none;
   height: 0.5em;
 }
 .ajs-default-skin .vjs-volume-handle:before {
@@ -293,15 +291,15 @@ fonts to show/hide properly.
       The -50% left position makes that happen.
   */
 
-  background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+  background: #FFDB60;
 }
 .ajs-default-skin .vjs-load-progress {
-  background: #646464 /* IE8- Fallback */;
-  background: rgba(255, 255, 255, 0.4);
+  background: #666 /* IE8- Fallback */;
 }
 .ajs-default-skin .vjs-seek-handle {
   width: 1.5em;
   height: 100%;
+  display:none;
 }
 .ajs-default-skin .vjs-seek-handle:before {
   padding-top: 0.1em /* Minor adjustment */;
@@ -338,11 +336,11 @@ fonts to show/hide properly.
   float: right;
 }
 .ajs-default-skin .vjs-fullscreen-control:before {
-  content: "\e000";
+  content: "\e009";
 }
 /* Switch to the exit icon when the player is in fullscreen */
 .ajs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before {
-  content: "\e00b";
+  content: "\e00a";
 }
 /* Big Play Button (play button at start)
 --------------------------------------------------------------------------------
@@ -350,36 +348,31 @@ Positioning of the play button in the center or other corners can be done more
 easily in the skin designer. http://designer.videojs.com/
 */
 .ajs-default-skin .vjs-big-play-button {
-  left: 0.5em;
-  top: 0.5em;
-  font-size: 3em;
-  display: block;
-  z-index: 2;
-  position: absolute;
-  width: 4em;
-  height: 2.6em;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  opacity: 1;
-  /* Need a slightly gray bg so it can be seen on black backgrounds */
-  /* background-color-with-alpha */
-  background-color: #07141e;
-  background-color: rgba(7, 20, 30, 0.7);
-  border: 0.1em solid #3b4249;
-  /* border-radius */
-  -webkit-border-radius: 0.8em;
-  -moz-border-radius: 0.8em;
-  border-radius: 0.8em;
-  /* box-shadow */
-  -webkit-box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.25);
-  -moz-box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 1em rgba(255, 255, 255, 0.25);
-  /* transition */
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
+    display: block; /* Start hidden */
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 9.0em;
+    height: 9.0em;
+    margin: -48px 0 0 -45px;
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer !important;
+    border: 0em solid #EEE;
+    opacity: 1;
+	background: rgb(56, 56, 56);
+	border-radius:6px;
+    background: linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
+    /* CSS Shadows */
+    -webkit-box-shadow:0 0 400px rgba(255,255,255,0.8), 0 0 300px rgba(255,255,255,0.8), 0 0 200px rgba(255,255,255,0.8);
+    -moz-box-shadow:0 0 400px rgba(255,255,255,0.8), 0 0 300px rgba(255,255,255,0.8), 0 0 200px rgba(255,255,255,0.8);
+    box-shadow:0 0 400px rgba(255,255,255,0.8), 0 0 300px rgba(255,255,255,0.8), 0 0 200px rgba(255,255,255,0.8);
+	-webkit-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	-moz-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	-ms-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	-o-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 /* Hide if controls are disabled */
 .ajs-default-skin.vjs-controls-disabled .vjs-big-play-button {
@@ -411,19 +404,24 @@ easily in the skin designer. http://designer.videojs.com/
   -o-transition: all 0s;
   transition: all 0s;
 }
-.ajs-default-skin .vjs-big-play-button:before {
-  content: "\e001";
-  font-family: Atlantis;
-  /* In order to center the play icon vertically we need to set the line height
-     to the same as the button height */
+.ajs-default-skin div.vjs-big-play-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 35px;
+    height: 42px;
+    margin: -30px 0 0 -22px; /* Using negative margin to center image. */
+}
+.ajs-default-skin .vjs-big-play-button  span:before {
+	        content: '\E006';
+			font-family:Atlantis;
+			font-size:5.5em;
+			color:#fff;
+}
 
-  line-height: 2.6em;
-  text-shadow: 0.05em 0.05em 0.1em #000;
-  text-align: center /* Needed for IE8 */;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.ajs-default-skin:hover div.vjs-big-play-button span:before {
+	color:#fffff1;
 }
 /* Loading Spinner
 --------------------------------------------------------------------------------
@@ -446,7 +444,7 @@ easily in the skin designer. http://designer.videojs.com/
   -o-animation: spin 1.5s infinite linear;
   animation: spin 1.5s infinite linear;
 }
-.ajs-default-skin .vjs-loading-spinner:before {
+/* .ajs-default-skin .vjs-loading-spinner:before {
   content: "\e00a";
   font-family: Atlantis;
   position: absolute;
@@ -456,7 +454,7 @@ easily in the skin designer. http://designer.videojs.com/
   height: 1em;
   text-align: center;
   text-shadow: 0em 0em 0.1em #000;
-}
+} */
 @-moz-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
@@ -562,10 +560,6 @@ easily in the skin designer. http://designer.videojs.com/
   /* background-color-with-alpha */
   background-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.75);
-  /* box-shadow */
-  -webkit-box-shadow: 0 0 1em #ffffff;
-  -moz-box-shadow: 0 0 1em #ffffff;
-  box-shadow: 0 0 1em #ffffff;
 }
 .ajs-default-skin .vjs-menu-button ul li.vjs-menu-title {
   text-align: center;
@@ -765,6 +759,13 @@ body.vjs-full-window {
 }
 
 /*#source /local/plugins/sharing/style/sharing.css */
+div.vjs-control-bar div.vjs-sharing-button:before 
+{
+	content: '\E000';
+	font-size:1.6em;
+}
+
+
 div.vjs-control-bar div.vjs-sharing-button div
 {
     width:auto;
@@ -835,7 +836,9 @@ div.vjs-control-bar div.vjs-sharing-button span.vjs-share-icon-background {
 div.vjs-control-bar div.vjs-sharing-button .vjs-menu
 {
     width:9.0em;
-    left:-3em;
+	bottom:0;
+	height:auto;
+    left:-6em;
     background: none;
     border: none;
     -webkit-box-shadow: none;
@@ -851,6 +854,8 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-menu-title
     padding: 0.2em 0 0.1em;
     text-transform: none;
     font-family: Arial, sans-serif;
+	background: none repeat scroll 0 0 #333;
+	display:none;
 }
 
 div.vjs-control-bar div.vjs-sharing-button li.vjs-menu-arrow
@@ -1107,7 +1112,7 @@ div.vjs-control-bar div.vjs-quality-button div
 {
     width:auto;
     background-image:none;
-    padding-top: 0.5em;
+    padding-top: 0.8em;
 }
 
 div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
@@ -1119,7 +1124,9 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 .vjs-control-bar .vjs-quality-button .vjs-menu
 {
     width:6.5em;
-    left:-1.5em;
+    left:-5em;
+	height:auto;
+	bottom:0;
     background: none;
     border: none;
     -webkit-box-shadow: none;
@@ -1129,7 +1136,7 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 
     div.vjs-control-bar div.vjs-quality-button .vjs-menu-item
     {
-        padding: 0.2em 0 0.2em 1.6em;
+        padding: 0.2em 0 0.2em 0em;
         height: 1.4em;
         margin: 0 0;
         opacity: 1;
@@ -1146,10 +1153,10 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected
 {
-    list-style: circle;
+    list-style: none;
     text-decoration: none;
     color: #FFFFFF;
-	padding: 0.2em 0 0.2em 0.2em;
+	padding: 0.2em 1.2em 0.2em 0em;
 }
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:before
@@ -1164,11 +1171,13 @@ div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:before
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:hover
 {
     color: #111111;
+	box-shadow: none;
 }
 
 div.vjs-control-bar div.vjs-quality-button .vjs-menu-item:hover
 {
     background: none repeat scroll 0 0 #BBB;
+	box-shadow: none;
 }
 
 div.vjs-control-bar div.vjs-quality-button .vjs-menu-title
@@ -1179,6 +1188,12 @@ div.vjs-control-bar div.vjs-quality-button .vjs-menu-title
     padding: 0.2em 0 0.2em;
     text-transform: none;
     font-family: Arial, sans-serif;
+	background: none repeat scroll 0 0 #333;
+}
+
+div.vjs-control-bar div.vjs-quality-button .vjs-menu-title:hover
+{
+    color: #ccc
 }
 
 div.vjs-control-bar div.vjs-quality-button li.vjs-menu-arrow
@@ -1529,13 +1544,14 @@ div.ajs-poster-mask{
 }
 
 span.video-pause-call-to-action{
-	background:#555;
-	padding:0.2em 0.6em;
+	background:#222;
+	padding:0.3em;
 	color:#FFE;	
-	border-radius: 0 0 0.2em 0.2em;
+	display:block;
+	width:100%;
 	font-size:1.7em;
 	position:relative;
-	top:0.2em;
+	top:0;
 	z-index:4;
 	cursor:default;
 	font-family: 'Aldrich',sans-serif;
