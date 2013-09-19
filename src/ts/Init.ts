@@ -88,6 +88,18 @@ module AtlantisJS {
         player["changeVideo"] = ChangeVideo;
         player["changeVideoById"] = CreateChangeVideoByIdFunc(player, input.videos);
 
+        var durationHasBeenSet = false;
+        player.one("durationset", function () {
+            durationHasBeenSet = true;
+        });
+
+        player.one("play", function () {
+            var videosrc = player._player.currentSrc();
+            if (durationHasBeenSet === false) {
+                player.src(videosrc + "?a=1");
+            }
+        });
+
         return player;
     }
 }

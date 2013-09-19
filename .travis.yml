@@ -22,8 +22,10 @@ after_success:
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
 - cp example/atlantisLogoSplash.png atlantisLogoSplash.png
-- cp example/example.css example.css
-- cp example/example.htm example.htm
+- cp example/exampleExternal.css example.css
+- cp example/logo.png logo.png
+- cp example/whiteLogo.png whiteLogo.png
+- cp example/exampleExternal.htm example.htm
 - cp build/js/gzip/atlantis.js atlantis.js
 - cp build/js/gzip/atlantisjs.css atlantisjs.css
 - git add -f atlantis.js
