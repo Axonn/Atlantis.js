@@ -21,6 +21,9 @@ after_success:
 - if git checkout master; then git checkout -b master; fi
 - git config user.name "travis-ci"
 - git config user.email "corwin.tomkinson@adfero.co.uk"
+- cp example/atlantisLogoSplash.png atlantisLogoSplash.png
+- cp example/example.css example.css
+- cp example/example.htm example.htm
 - cp build/js/gzip/atlantis.js atlantis.js
 - cp build/js/gzip/atlantisjs.css atlantisjs.css
 - git add -f atlantis.js
@@ -28,6 +31,9 @@ after_success:
 - git commit -am "add build files to master [ci skip]"
 - travis-artifacts upload --path atlantis.js --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path atlantisjs.css --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path atlantisLogoSplash.png --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path example.css --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path example.htm --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path build/js/fonts --target-path atlantisjs/$version/fonts
 - echo $version
 - git tag -a $version -m "new AtlantisJS Version released"

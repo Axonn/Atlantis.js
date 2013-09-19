@@ -5,14 +5,16 @@
 		<a class="ajs-call-to-action-button" href="{model.callToAction.button.link|s}">{model.callToAction.button.text|s}</a>
 	</div>
 	<div class="ajs-related-videos">
-		<h2>{model.title}</h2>
-		{#model.related}
-		<a href="{link}">
-			<div class='ajs-related-video-container'>
-				<img alt='{title}' src='{img.src}'>
-				<p>{title}</p>
-			</div>
-		</a>
-		{/model.related}
+		<h2>{model.relatedVideos.title}</h2>
+		<div class='ajs-related-video-master'>
+			{#model.relatedVideos.items}
+			<a href="{link}">
+				<div class='ajs-related-video-container'>
+					<img alt='{title}' src='{img}'>
+					<p>{title}</p>
+				</div>
+			</a>
+			{/model.relatedVideos.items}
+		</div>
 	</div>	
 </div>
