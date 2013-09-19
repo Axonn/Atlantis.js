@@ -10,7 +10,8 @@
     "videojs-social-sharing-plugin": "git://github.com/Axonn/videojs-social-sharing-plugin",
     "videojs-google-analytics-plugin": "git://github.com/Axonn/videojs-google-analytics-plugin",
     "videojs-resolution-switching-plugin": "git://github.com/Axonn/videojs-resolution-switching-plugin",
-    "jquery.path": "git://github.com/Axonn/jquery.path"
+    "jquery.path": "git://github.com/Axonn/jquery.path",
+    "video.js": "git://github.com/videojs/video.js-component#a0a900e4c8700a796b5bbfa902233984bc95e77c"
   },
   "devDependencies": {
     "jquery": "1.10.1"
@@ -25,6 +26,7 @@
     "Gruntfile.js"
   ],
   "resolutions": {
-    "videojs-plugin-components": "~0.5.0"
+    "videojs-plugin-components": "~0.5.0",
+    "video.js": "a0a900e4c8700a796b5bbfa902233984bc95e77c"
   }
 }

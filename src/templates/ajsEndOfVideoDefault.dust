@@ -1,15 +1,20 @@
-<div class="related-videos">
-	<h2>{model.title}</h2>
-	<div class='related-video-master2'>
-		<div class='related-video-master'>
-			{#model.related}
+<div class="ajs-end-of-video-call-to-action-container">
+	<div class="ajs-end-of-video-call-to-action-small">
+		<h2>{model.callToAction.title|s}</h2>
+		<p>{model.callToAction.subtitle|s}</p>
+		<a class="ajs-call-to-action-button" href="{model.callToAction.button.link|s}">{model.callToAction.button.text|s}</a>
+	</div>
+	<div class="ajs-related-videos">
+		<h2>{model.relatedVideos.title}</h2>
+		<div class='ajs-related-video-master'>
+			{#model.relatedVideos.items}
 			<a href="{link}">
-				<div class='related-video-container'>
-					<img alt='{title}' src='{img.src}'>
+				<div class='ajs-related-video-container'>
+					<img alt='{title}' src='{img}'>
 					<p>{title}</p>
 				</div>
 			</a>
-			{/model.related}
+			{/model.relatedVideos.items}
 		</div>
-	</div>
+	</div>	
 </div>

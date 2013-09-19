@@ -25,8 +25,8 @@ module AtlantisJS {
             model: endOfVideoOptions,
             displayTimes: [{
                 type: "switch",
-                start: (duration) => { return duration },
-                end: (duration) => { return duration }
+                start: (duration) => { return duration - 0.1 },
+                end: (duration) => { return duration + 0.1 }
             }],
             events: {}
         }
