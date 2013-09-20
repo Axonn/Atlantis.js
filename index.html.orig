@@ -29,10 +29,18 @@
       </header>
       <section>
         <p><a name="top"></a></p>
+<<<<<<< HEAD
 <div class="videoWrapper">
 	<iframe class="ajs-player" type="text/html" width="100%" src="http://atlantisjs.s3.amazonaws.com/atlantisjs/v0.10.2/example.htm" allowfullscreen frameborder="0">
 	</iframe>
 </div>
+<br />
+=======
+
+<p align="center">
+  <img src="http://p.ninjacdn.co.uk/atlantisjs/v0.9.2/atlantisLogo.png" alt="AtlantisJS"></p>
+
+>>>>>>> d07227aff1d2cd728c65e2d93a9879cdf770a7a7
 <p>Atlantis.js = video.js + plugins + content marketing centric video embed code</p>
 
 <p>Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers. We still have a way to go.</p>
