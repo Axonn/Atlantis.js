@@ -33,6 +33,8 @@ after_success:
 - git commit -am "add build files to master [ci skip]"
 - travis-artifacts upload --path atlantis.js --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path atlantisjs.css --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path logo.png --target-path atlantisjs/$version --cache-control 'public, max-age=0'
+- travis-artifacts upload --path whiteLogo.png --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path atlantisLogoSplash.png --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path example.css --target-path atlantisjs/$version --cache-control 'public, max-age=0'
 - travis-artifacts upload --path example.htm --target-path atlantisjs/$version --cache-control 'public, max-age=0'

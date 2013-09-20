@@ -1085,12 +1085,12 @@ div.ajs-end-of-video-call-to-action-small p{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 2.0em ;
+	font-size: 1.8em ;
 }
 
 @media screen and (max-width: 1200px) {
 	div.ajs-end-of-video-call-to-action-small p{
-		font-size: 1.7em ;
+		font-size: 1.53em ;
 	}
 }
 
@@ -1429,18 +1429,18 @@ div.ajs-related-video-container p
 @media screen and (max-width:1200px) {
 	div.ajs-related-video-container p
 	{
-		font-size:1.1em;
+		font-size:1.0em;
 	}
 }
 
 @media screen and (max-width:1000px) {
 	div.ajs-related-video-container p
 	{
-		font-size:1.0em;
+		font-size:0.9em;
 	}
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:600px) {
 	div.ajs-related-video-container p
 	{
 		font-size:0.8em;
@@ -1479,7 +1479,7 @@ div.ajs-related-videos
 		
 	text-align: left;
 
-	padding:1.2em 0 0;
+	padding:1.1em 0 0;
 	height:25%;
 	width:100%;
 }
