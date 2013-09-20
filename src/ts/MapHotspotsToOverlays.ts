@@ -69,6 +69,16 @@ module AtlantisJS {
             var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
             hotspotElement.css("width", newSize.x + "px");
             hotspotElement.css("height", newSize.y + "px");
+
+            var scaleElements = hotspotElement.find(".ajs-scale-text-80");
+            var ratio = newSize.x / parseInt(scaleElements.css("width").slice(0, -2));
+            var fontUnit = scaleElements.css("font-size").slice(-2);
+            var fontSize = parseInt(scaleElements.css("font-size").slice(0, -2));
+            hotspotElement.find(".ajs-scale-text-80").css("font-size", (ratio * fontSize * 0.8) + fontUnit);
+
+
+
+
             hotspotElement.find(".ajs-parent-height").css("height", newSize.y + "px");
             hotspotElement.find(".ajs-half-negative-parent-margin-bottom").css("margin-bottom",  (- newSize.y / 2) + "px");
         }
