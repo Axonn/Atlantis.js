@@ -6,6 +6,8 @@
 
 [![Build Status](https://travis-ci.org/Axonn/Atlantis.js.png?branch=master)](https://travis-ci.org/Axonn/Atlantis.js)
 
+[Official Website and more documentation](http://axonn.github.io/Atlantis.js/)
+
 Atlantis.js = video.js + plugins + content marketing centric video embed code
 
 Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers. We still have a way to go.
@@ -55,6 +57,31 @@ Include the following javascript embed code at some point lower down the page:
 </script>
 ```
 
-## Going Further
+## Change log 
 
-We are currently working on writing more documentation for AtlantisJS. If you wish to see how to use the myriad of features Atlantis provides, the best thing would be to check out the example in examples/example.htm.
+#v0.10.4
+
++ Fix an issue where hotpot text would extend beyond its container.
+
+#v0.10.3
+
++ Fix an issue where resolution switching wouldn't actually change the text.
+
+#v0.10.2
+
++ Change more default css styling to be more responsive, especially in iframes.
+
+#v0.10.1
+
++ Change the default css styling to be more responsive, especially in iframes.
+
+#v0.10.0
+
++ Update Atlantis.js to the version 4.2 of video.js .
+
+## More Documentation
+
+If you want to read more check out [the website](https://github.com/Axonn/Atlantis.js)
+
+
+
