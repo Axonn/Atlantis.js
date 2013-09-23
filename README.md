@@ -59,23 +59,23 @@ Include the following javascript embed code at some point lower down the page:
 
 ## Change log 
 
-#v0.10.4
+###v0.10.4
 
 + Fix an issue where hotpot text would extend beyond its container.
 
-#v0.10.3
+###v0.10.3
 
 + Fix an issue where resolution switching wouldn't actually change the text.
 
-#v0.10.2
+###v0.10.2
 
 + Change more default css styling to be more responsive, especially in iframes.
 
-#v0.10.1
+###v0.10.1
 
 + Change the default css styling to be more responsive, especially in iframes.
 
-#v0.10.0
+###v0.10.0
 
 + Update Atlantis.js to the version 4.2 of video.js .
 
