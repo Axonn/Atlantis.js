@@ -61,7 +61,7 @@ Include the following javascript embed code at some point lower down the page:
 
 ###v0.10.4
 
-+ Fix an issue where hotpot text would extend beyond its container.
++ Fix an issue where hotspot text would extend beyond its container.
 
 ###v0.10.3
 
