@@ -1,4 +1,4 @@
-<div class="ajs-end-of-video-call-to-action-container">
+<div class="ajs-end-of-video-call-to-action-container"  data-squery="min-width:400px=ajs-size-400 min-width:600px=ajs-size-600 min-width:800px=ajs-size-800 min-width:1000px=ajs-size-1000">
 	<div class="ajs-end-of-video-call-to-action-small">
 		<h2>{model.callToAction.title|s}</h2>
 		<p>{model.callToAction.subtitle|s}</p>

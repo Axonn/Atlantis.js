@@ -1,15 +1,15 @@
-<div class="related-videos">
-	<h2>{model.title}</h2>
-	<div class='related-video-master2'>
-		<div class='related-video-master'>
-			{#model.related}
+<div class="ajs-end-of-video-call-to-action-container">
+	<div class="ajs-related-videos" data-squery="min-width:400px=wide max-width:10em=small">
+		<h2>{model.relatedVideos.title}</h2>
+		<div class='ajs-related-video-master'>
+			{#model.relatedVideos.items}
 			<a href="{link}">
-				<div class='related-video-container'>
-					<img alt='{title}' src='{img.src}'>
+				<div class='ajs-related-video-container'>
+					<img alt='{title}' src='{img}'>
 					<p>{title}</p>
 				</div>
 			</a>
-			{/model.related}
+			{/model.relatedVideos.items}
 		</div>
-	</div>
+	</div>	
 </div>

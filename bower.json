@@ -11,7 +11,8 @@
     "videojs-google-analytics-plugin": "git://github.com/Axonn/videojs-google-analytics-plugin",
     "videojs-resolution-switching-plugin": "git://github.com/Axonn/videojs-resolution-switching-plugin#0.1.1",
     "jquery.path": "git://github.com/Axonn/jquery.path",
-    "video.js": "git://github.com/videojs/video.js-component#a0a900e4c8700a796b5bbfa902233984bc95e77c"
+    "video.js": "git://github.com/videojs/video.js-component#a0a900e4c8700a796b5bbfa902233984bc95e77c",
+	"selector-queries": "git://github.com/Axonn/selector-queries"
   },
   "devDependencies": {
     "jquery": "1.10.1"

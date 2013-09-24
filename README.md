@@ -59,6 +59,10 @@ Include the following javascript embed code at some point lower down the page:
 
 ## Change log 
 
+###v0.11.0
+
++ Add the ability to specify responsive containers on templates [see here](https://github.com/ahume/selector-queries/). This file is bundled with atlantis.
+
 ###v0.10.4
 
 + Fix an issue where hotspot text would extend beyond its container.

@@ -30,6 +30,16 @@ module AtlantisJS {
             videoOverlays.push(MapPauseCalltoActionsToOverlay(video.pauseCallToAction));
         }
 
+        for (var i = 0; i < videoOverlays.length; i++) {
+            if (typeof videoOverlays[i].events["onCreate"] === "undefined") {
+                videoOverlays[i].events["onCreate"] = [];
+            }
+
+            videoOverlays[i].events["onCreate"].push((args) => {
+                window["SelectorQueries"].addElements([args.overlay.layer.container[0]]);
+            });
+        }
+
         return videoOverlays;
     }
 
