@@ -1,5 +1,6 @@
 html, body {
 	height:100%;
+	width:100%;
 	background:#000522;
 	margin:0;
 	overflow:hidden;
@@ -10,7 +11,9 @@ div.ajs-video-container {
 	margin-right:auto;
 	width: 100%;
 	height:100%;
-	position:relative;
+	position:absolute;
+	top:0;
+	left:0;
 }
 
 div.ajs-video-floater {
@@ -22,4 +25,9 @@ div.ajs-video-floater {
 .ajs-default-skin .vjs-big-play-button {
 	top:60%;
 
+}
+
+div.ajs-default-skin {
+	height:100% !important;
+	width:100% !important;
 }
