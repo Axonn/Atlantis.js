@@ -20,7 +20,10 @@ module AtlantisJS {
                 start: function () { return 0 },
                 end: function (duration) { return duration - 0.1; }
             }],
-            events: {}
+            events: {
+                onCreate: []
+
+            }
         }
 
         return overlay

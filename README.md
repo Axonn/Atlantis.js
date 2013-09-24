@@ -59,6 +59,10 @@ Include the following javascript embed code at some point lower down the page:
 
 ## Change log 
 
+###v0.11.1
+
++ Change default css to look better on IE.
+
 ###v0.11.0
 
 + Add the ability to specify responsive containers on templates [see here](https://github.com/ahume/selector-queries/). This file is bundled with atlantis.
