@@ -104,7 +104,7 @@ module AtlantisJS {
         });
 
         player.one("play", function () {
-            var videosrc = player._player.currentSrc();
+            var videosrc = player.currentSrc();
             if (durationHasBeenSet === false) {
                 player.src(videosrc + "?a=1");
             }
