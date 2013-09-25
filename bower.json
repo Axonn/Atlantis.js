@@ -4,7 +4,7 @@
   "dependencies": {
     "jquery": "1.10.1",
     "dustjs-linkedin": "~2.0.2",
-    "videojs-plugin-components": "git://github.com/Axonn/videojs-plugin-components#~0.5.6",
+    "videojs-plugin-components": "git://github.com/Axonn/videojs-plugin-components#~0.5.7",
     "videojs-overlay-plugin": "git://github.com/Axonn/videojs-overlay-plugin#~0.1.0",
     "videojs-poster-plugin": "git://github.com/Axonn/videojs-poster-plugin",
     "videojs-social-sharing-plugin": "git://github.com/Axonn/videojs-social-sharing-plugin",
