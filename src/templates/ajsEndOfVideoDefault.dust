@@ -8,7 +8,7 @@
 		<h2>{model.relatedVideos.title}</h2>
 		<div class='ajs-related-video-master'>
 			{#model.relatedVideos.items}
-			<a href="{link}">
+			<a {?linkUrl}href="{linkUrl}"{/linkUrl}{?linkId}data-video-change="{linkId}"{/linkId}>
 				<div class='ajs-related-video-container'>
 					<img alt='{title}' src='{img}'>
 					<p>{title}</p>

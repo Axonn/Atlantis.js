@@ -14,19 +14,18 @@ module AtlantisJS {
     export interface IRelatedVideo {
         title: string;
         img: string;
-        linkId: string;
+        linkId?: string;
+        linkUrl?: string;
     }
 
     export interface IRelatedVideoOptions {
         title: string;
         items: IRelatedVideo[];
-        linkTarget: string;
-        linkUrl: string;
     }
 
     export interface IEndOfVideoOptions {
-        callToAction: IEndOfVideoCallToAction;
-        relatedVideos: IRelatedVideoOptions
+        callToAction?: IEndOfVideoCallToAction;
+        relatedVideos?: IRelatedVideoOptions
         template?: string;
     }
 

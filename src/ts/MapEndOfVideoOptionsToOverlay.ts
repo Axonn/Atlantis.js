@@ -28,7 +28,14 @@ module AtlantisJS {
                 start: (duration) => { return duration - 0.1 },
                 end: (duration) => { return duration + 0.1 }
             }],
-            events: {}
+            events: {
+                onCreate: [(args) => {
+                    args.overlay.layer.container.find('a[data-video-change]').click(function() {
+                        var id = jQuery(this).attr("data-video-change");
+                        VjsPluginComponents.GetService(args.player, "changeVideoByIdFunc")(id);
+                    });
+                }]
+            }
         }
 
         return overlay

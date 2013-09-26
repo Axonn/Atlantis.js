@@ -96,7 +96,10 @@ module AtlantisJS {
         player.getVideo().aspectRatio = video.aspectRatio;
 
         player["changeVideo"] = ChangeVideo;
-        player["changeVideoById"] = CreateChangeVideoByIdFunc(player, input.videos);
+        var changeByIdFunc = CreateChangeVideoByIdFunc(player, input.videos);
+        player["changeVideoById"] = changeByIdFunc;
+
+        VjsPluginComponents.ApplySingleService(player)("changeVideoByIdFunc")(() => { return changeByIdFunc; });
 
         var durationHasBeenSet = false;
         player.one("durationset", function () {
