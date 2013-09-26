@@ -29,15 +29,6 @@ module AtlantisJS {
         template?: string;
     }
 
-    export interface ISplashPageModel {
-        title: string;
-        subtitle: string;
-        img: string;
-        text: string;
-        url: string;
-        buttonText: string;
-    }
-
     export interface IHotspotPosition {
         duration: number;
         path: (percentage: number) => {
@@ -54,7 +45,7 @@ module AtlantisJS {
         text: string;
         linkTarget: string;
         linkTemplate?: string;
-        linkSplashData?: ISplashPageModel;
+        linkSplashData?;
         linkUrl?: string;
         template?: string;
     }

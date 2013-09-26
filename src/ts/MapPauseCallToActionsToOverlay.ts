@@ -30,15 +30,9 @@ module AtlantisJS {
                     });
                     args.player.on("pause", function () {
                         args.overlay.layer.container.children().removeClass("vjsInvisible");
-                        //args.overlay.layer.container.addClass("vjsVisible");
-                        //args.overlay.layer.container.children().addClass("vjsVisible");
-                        
-                        //args.overlay.layer.container.removeClass("vjsInvisible");
                     });
                     args.player.on("play", function () {
                         args.overlay.layer.container.children().addClass("vjsInvisible");
-                        //args.overlay.layer.container.removeClass("vjsVisible");
-                        //args.overlay.layer.container.children().removeClass("vjsVisible");
                     });
                 }]}
         }

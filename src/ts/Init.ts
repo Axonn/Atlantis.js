@@ -4,7 +4,7 @@
 ///<reference path='MapAnnotationToOverlay.ts'/>
 ///<reference path='MapEndOfVideoOptionsToOverlay.ts'/>
 ///<reference path='MapHotspotsToOverlays.ts'/>
-///<reference path='MapLogoToPoster.ts'/>
+///<reference path='MapLogoToOverlay.ts'/>
 ///<reference path='MapPauseCallToActionsToOverlay.ts'/>
 ///<reference path='MapTitleToPoster.ts'/>
 ///<reference path='../../bower_components/videojs-plugin-components/vjsplugincomponents.d.ts'/>
