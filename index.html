@@ -29,10 +29,10 @@
       </header>
       <section>
         <p><a name="top"></a></p>
-<div class="videoWrapper">
-	<iframe class="ajs-player" type="text/html" width="100%" src="http://atlantisjs.s3.amazonaws.com/atlantisjs/v0.11.3/example.htm" allowfullscreen frameborder="0">
-	</iframe>
-</div>
+
+<p align="center">
+  <img src="http://p.ninjacdn.co.uk/atlantisjs/v0.9.2/atlantisLogo.png" alt="AtlantisJS"></p>
+
 <p>Atlantis.js = video.js + plugins + content marketing centric video embed code</p>
 
 <p>Atlantis.js is a video player designed specifically for content marketing gurus and growth hackers alike. With a whole host of features such as call to actions and analytics tracking it is our goal to provide a simple to use video player for marketers. We still have a way to go.</p>
@@ -259,15 +259,6 @@ Required: <code>No</code></p>
 <p>Name of the dust template to use to show the end of video screen. By default this varies on whether related videos and/or endOfVideoCallToActions are set.</p>
 
 <h4>
-<a name="endofvideooptionsrelatedvideoslinktarget" class="anchor" href="#endofvideooptionsrelatedvideoslinktarget"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.linkTarget</h4>
-
-<p>Type: <code>String</code>
-Default: <code>undefined</code>
-Required: <code>Yes</code></p>
-
-<p>Option indicating whether the related images link to another URL or to a different video already embedded in the player. Valid options: <code>player</code>,<code>external</code>.</p>
-
-<h4>
 <a name="endofvideooptionsrelatedvideostitle" class="anchor" href="#endofvideooptionsrelatedvideostitle"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.title</h4>
 
 <p>Type: <code>String</code>
@@ -317,21 +308,333 @@ Required: <code>No</code></p>
 <h2>
 <a name="call-to-actions" class="anchor" href="#call-to-actions"><span class="octicon octicon-link"></span></a>Call to Actions</h2>
 
-<p>Coming Soon!</p>
+<p>It wouldn't be marketing if we weren't talking about call to actions. At this point in time there are two points for the introduction of call to actions: </p>
+
+<ul>
+<li>At the end of the video alongside the related videos</li>
+<li>Along the top bar when the user pauses the video</li>
+</ul><p>Both are very easy to implement. </p>
+
+<h3>
+<a name="end-of-video-call-to-actions" class="anchor" href="#end-of-video-call-to-actions"><span class="octicon octicon-link"></span></a>End of Video Call to Actions</h3>
+
+<p>Here's an example embed</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+var atlantisVideo = AtlantisJS.Init({
+    videos: [{
+        id: "vid1",
+        endOfVideoOptions: {
+            callToAction: {
+                title: "78% of people watch online video every week",
+                subtitle: "Shouldn't you be engaging the growing audience?",
+                button: {
+                    link: "https://github.com/Axonn/Atlantis.js",
+                    text: "Get Started"
+                }
+            }
+        }
+    }]
+});
+</code></pre>
+
+<h4>
+<a name="endofvideooptionscalltoactiontitle" class="anchor" href="#endofvideooptionscalltoactiontitle"><span class="octicon octicon-link"></span></a>endOfVideoOptions.callToAction.title</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the text used in the main title </p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideossubtitle" class="anchor" href="#endofvideooptionsrelatedvideossubtitle"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.subtitle</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>Sets the text used in the line just below the title. This line may disappear on lower resolutions so ensure the title works alone and with the subtitle.</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideosbuttonlink" class="anchor" href="#endofvideooptionsrelatedvideosbuttonlink"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.button.link</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the URL that the call to action links to</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideosbuttontext" class="anchor" href="#endofvideooptionsrelatedvideosbuttontext"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.button.text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the text on the button</p>
+
+<h4>
+<a name="endofvideooptionsrelatedvideosbuttontext-1" class="anchor" href="#endofvideooptionsrelatedvideosbuttontext-1"><span class="octicon octicon-link"></span></a>endOfVideoOptions.relatedVideos.button.text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the text on the button</p>
+
+<p>These settings are just those used for the default template. If the html layout doesn't suit you you can render an dust template and embed using the template value. The model passed into this template will be the whole of endOfVideoOptions.</p>
+
+<h4>
+<a name="endofvideooptionstemplate-1" class="anchor" href="#endofvideooptionstemplate-1"><span class="octicon octicon-link"></span></a>endOfVideoOptions.template</h4>
+
+<p>Type: <code>String</code>
+Default: <code>various</code>
+Required: <code>No</code></p>
+
+<p>Name of the dust template to use to show the end of video screen. By default this varies on whether related videos and/or endOfVideoCallToActions are set.</p>
+
+<h3>
+<a name="pause-call-to-actions" class="anchor" href="#pause-call-to-actions"><span class="octicon octicon-link"></span></a>Pause Call to Actions</h3>
+
+<p>Here's an example embed. This one's pretty simple.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+var atlantisVideo = AtlantisJS.Init({
+    videos: [{
+        id: "vid1",
+        pauseCallToAction: {
+            text: "Super sexy call to actions &lt;a href='https://github.com/Axonn/Atlantis.js/'&gt;Drive traffic even when paused&lt;/a&gt;"
+        }
+    }]
+});
+</code></pre>
+
+<h4>
+<a name="pausecalltoactiontext" class="anchor" href="#pausecalltoactiontext"><span class="octicon octicon-link"></span></a>pauseCallToAction.text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Text to be injected into the call to action. Any valid html is allowed. </p>
 
 <p><a name="google-analytics-integration"></a> </p>
 
 <h2>
 <a name="google-analytics" class="anchor" href="#google-analytics"><span class="octicon octicon-link"></span></a>Google Analytics</h2>
 
-<p>Coming Soon!</p>
+<p>Google analytics track as many of our features as is possible as events. Here is a quick rundown of the different possible values:</p>
+
+<h4>
+<a name="play" class="anchor" href="#play"><span class="octicon octicon-link"></span></a>Play</h4>
+
+<p>Triggers when the video is played for the first time. Will only trigger once per page load. (Analytics Event name: "Play")</p>
+
+<h4>
+<a name="pause" class="anchor" href="#pause"><span class="octicon octicon-link"></span></a>Pause</h4>
+
+<p>Triggers anytime the video is paused. Can trigger multiple times during a video watch. (Analytics Event name: "Pause")</p>
+
+<h4>
+<a name="error" class="anchor" href="#error"><span class="octicon octicon-link"></span></a>Error</h4>
+
+<p>Triggers anytime an error is thrown by the javascript. Can trigger multiple times during a video watch. (Analytics Event name: "Error")</p>
+
+<h4>
+<a name="share" class="anchor" href="#share"><span class="octicon octicon-link"></span></a>Share</h4>
+
+<p>This is for use with the share plugin. This will trigger anytime one of the share sources is clicked. It should be noted that clicking one of the share sources and actually sharing the video might be slightly different metrics this is because of visitor who visit the share page but fail to follow through with sharing. (Analytics Event name: "Share")</p>
+
+<h4>
+<a name="qualitychange" class="anchor" href="#qualitychange"><span class="octicon octicon-link"></span></a>QualityChange</h4>
+
+<p>This is for use with the resolution switching plugin. This will trigger anytime the resolution is switched and will return a different event based upon the new resolution.  (Analytics Event name: QualityChange_* where * is the resolution, e.g. QualityChange_1080p).</p>
+
+<h4>
+<a name="videowatched" class="anchor" href="#videowatched"><span class="octicon octicon-link"></span></a>VideoWatched</h4>
+
+<p>This will trigger whenever the user reaches a specific point in the video. The specific times where the event is triggered are (in seconds) 0.5, 5, 10, 15, 30, 45, 60, 90, 120, 150, 180 and so on in multiples of 30 seconds. This gives greater accuracy over the first minute of video with less later on. (Analytics Event name: VideoWatched_* where * is the time, e.g. VideoWatched_45)</p>
 
 <p><a name="hotspots"></a> </p>
 
 <h2>
 <a name="hotspots" class="anchor" href="#hotspots"><span class="octicon octicon-link"></span></a>Hotspots</h2>
 
-<p>Coming Soon!</p>
+<p>With hotspots we can make content more engaging and interactive. They are probably the most complex to integrate so handle with care!</p>
+
+<p>Again here's an example embed:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+var atlantisVideo = AtlantisJS.Init({
+    videos: [{
+        id: "vid1",
+        hotspots: [{
+            start: 67.4,
+            position: [{
+                    duration: 5.3,
+                    path: AtlantisJS.Static(0.265,0.318)
+                },
+                {
+                    duration: 0.4,
+                    path: AtlantisJS.Linear(0.265,0.325, 0.16,0.46)
+                },
+                {
+                    duration: 16,
+                    path: AtlantisJS.Static(0.16,0.46)
+                },
+                {
+                    duration: 16,
+                    path: AtlantisJS.CubicBezier(0.16, 0.46, 0.4, 0.8, 0.2, 0.5, 0.9, 0.95)
+                }],
+            height: 0.32,
+            width: 0.18,
+            linkTarget: "splash",
+            linkSplashData: {
+                imageUrl: "whiteLogo.png",
+                button1Text: "GitHub",
+                button2Text: "Back to Video"
+            },
+            text: "Example Hotspot"
+        }],
+    }]
+});
+</code></pre>
+
+<h4>
+<a name="hotspotsstart" class="anchor" href="#hotspotsstart"><span class="octicon octicon-link"></span></a>hotspots.start</h4>
+
+<p>Type: <code>Number</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the time (in seconds) when a hotspot will appear.</p>
+
+<h4>
+<a name="hotspotspositionduration" class="anchor" href="#hotspotspositionduration"><span class="octicon octicon-link"></span></a>hotspots.position.duration</h4>
+
+<p>Type: <code>Number</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Sets the time (in seconds) that the hotspot will either stay in its position or follow a specified path.</p>
+
+<h4>
+<a name="hotspotspositionpath" class="anchor" href="#hotspotspositionpath"><span class="octicon octicon-link"></span></a>hotspots.position.path</h4>
+
+<p>Type: <code>Function</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>The function of the path for the hotspot to follow. There are three paths currently supported:</p>
+
+<ul>
+<li>AtlantisJS.Static(x1, y1)</li>
+<li>AtlantisJS.Linear(x1, y1, x2, y2)
+where   (x1, y1) is the start point
+        (x2, y2) is the end point</li>
+<li>AtlantisJS.CubicBezier(x1, y1, x2, y2, x3, y3, x4, y4), 
+where   (x1, y1) is the start point
+        (x2, y2) is the direction out of the first point
+        (x3, y3) is the direction into the end point
+        (x4, y4) is the end point</li>
+</ul><p>All these values are given as fractions of the video (not the container, so ignoring black bars). So x = 0.5 would represent a position 50% in from the left.</p>
+
+<h4>
+<a name="hotspotsheight" class="anchor" href="#hotspotsheight"><span class="octicon octicon-link"></span></a>hotspots.height</h4>
+
+<p>Type: <code>Number</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Height of the hotspot.</p>
+
+<p>This value is given as a fraction of the video (not the container, so ignoring black bars). So a value of 0.1 would represent a height of 10% of the video.</p>
+
+<h4>
+<a name="hotspotswidth" class="anchor" href="#hotspotswidth"><span class="octicon octicon-link"></span></a>hotspots.width</h4>
+
+<p>Type: <code>Number</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Width of the hotspot.</p>
+
+<p>This value is given as a fraction of the video (not the container, so ignoring black bars). So a value of 0.1 would represent a width of 10% of the video.</p>
+
+<h4>
+<a name="hotspotstext" class="anchor" href="#hotspotstext"><span class="octicon octicon-link"></span></a>hotspots.text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>The text added to the hotspot.</p>
+
+<h4>
+<a name="hotspotslinktarget" class="anchor" href="#hotspotslinktarget"><span class="octicon octicon-link"></span></a>hotspots.linkTarget</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>Specified the behaviour of the hotspot. The two available behaviours are showing a splash screen (value: "splash") or linking to another website (value: "external").</p>
+
+<h4>
+<a name="hotspotslinksplashdataimageurl" class="anchor" href="#hotspotslinksplashdataimageurl"><span class="octicon octicon-link"></span></a>hotspots.linkSplashData.imageUrl</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>The url for the image to be shown.</p>
+
+<h4>
+<a name="hotspotslinksplashdatabutton1text" class="anchor" href="#hotspotslinksplashdatabutton1text"><span class="octicon octicon-link"></span></a>hotspots.linkSplashData.button1Text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>This is the text for the button that in the default template will link away to another site.</p>
+
+<h4>
+<a name="hotspotslinksplashdatabutton2text" class="anchor" href="#hotspotslinksplashdatabutton2text"><span class="octicon octicon-link"></span></a>hotspots.linkSplashData.button2Text</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>Yes</code></p>
+
+<p>This is the text for the button that in the default template will link back to the video.</p>
+
+<h4>
+<a name="hotspotslinksplashdatalinkurl" class="anchor" href="#hotspotslinksplashdatalinkurl"><span class="octicon octicon-link"></span></a>hotspots.linkSplashData.linkUrl</h4>
+
+<p>Type: <code>String</code>
+Default: <code>undefined</code>
+Required: <code>No</code></p>
+
+<p>If the hotspot links to another websitre this is where you set the url for that website.</p>
+
+<h4>
+<a name="hotspotstemplate" class="anchor" href="#hotspotstemplate"><span class="octicon octicon-link"></span></a>hotspots.template</h4>
+
+<p>Type: <code>String</code>
+Default: <code>ajsHotspotDefault</code>
+Required: <code>No</code></p>
+
+<p>Name of the dust template to use for the hotspot. The model passed through will have the following values: "top" (px), "left"(px), "height"(px), "width"(px), "linkTarget", "linkUrl" and "text".</p>
+
+<h4>
+<a name="hotspotslinktemplate" class="anchor" href="#hotspotslinktemplate"><span class="octicon octicon-link"></span></a>hotspots.linkTemplate</h4>
+
+<p>Type: <code>String</code>
+Default: <code>ajsHotspotSplashPageDefault</code>
+Required: <code>No</code></p>
+
+<p>Name of the dust template to use to show the end of video screen. The model passed through will be the hotspots.linkSplashData object.</p>
+
+<p>Phew! I hope that all makes sense.</p>
 
 <p><a name="custom-templating"></a> </p>
 
