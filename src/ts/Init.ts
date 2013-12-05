@@ -108,7 +108,7 @@ module AtlantisJS {
 
         player.one("play", function () {
             var videosrc = player.currentSrc();
-            if (durationHasBeenSet === false && player._player.ia === "Html5") {
+            if (durationHasBeenSet === false && player._player["ia"] && player._player["ia"] === "Html5") {
                 player.src(videosrc + "?a=1");
             }
         });
