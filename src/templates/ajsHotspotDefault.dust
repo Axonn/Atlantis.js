@@ -1,5 +1,9 @@
 <div class="ajs-hotspot" style="width:{model.width};height:{model.height};">
 		<div class="ajs-hotspot-insert ajs-scale-text-80">
+		{#model.linkUrl}
+			<a href="{model.linkUrl}">{model.text}</a> 
+		{:else}
 			{model.text}
+		{/model.linkUrl}
 		</div>
 </div>
