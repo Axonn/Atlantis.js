@@ -74,14 +74,10 @@ module AtlantisJS {
             playerOverlays.push(MapLogoToOverlay(input.options.logo));
         }
 
-        var player = new VjsPluginComponents.Player(
-            _V_(video.id, {
-                'plugins': {
+        var plugins = {
                     'googleAnalyticsPlugin': {
                     },
                     'resolutionSwitchingPlugin': {
-                    },
-                    'sharingPlugin': {
                     },
                     'overlayPlugin': {
                         videoOverlays: BuildOverlays(video),
@@ -90,7 +86,18 @@ module AtlantisJS {
                     'posterPlugin': {
                         posters: playerPosters
                     }
-                }
+                };
+
+        if (typeof (input.options) === "undefined" 
+            || typeof (input.options.socialSharing) === "undefined"
+            || input.options.socialSharing === true) 
+        {
+            plugins['sharingPlugin'] = {};
+        } 
+
+        var player = new VjsPluginComponents.Player(
+            _V_(video.id, {
+                'plugins': plugins
             }));
 
         player.getVideo().aspectRatio = video.aspectRatio;
