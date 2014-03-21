@@ -11,9 +11,7 @@ module AtlantisJS {
             template: {
                 name: template
             },
-            model: {
-                text: callToAction.text
-            },
+            model: callToAction,
             displayTimes: [{
                 type: "switch",
                 start: function (duration) { return 0.5 },
@@ -33,6 +31,11 @@ module AtlantisJS {
                     });
                     args.player.on("play", function () {
                         args.overlay.layer.container.children().addClass("vjsInvisible");
+                    });
+
+					args.overlay.layer.container.find('.ajs-click-continue').click(() => {
+                        args.overlay.layer.container.removeClass("vjsVisible");
+                        args.player.play();
                     });
                 }]}
         }
