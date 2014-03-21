@@ -36,12 +36,12 @@ At ReelContent we have developed as much functionality as possible to work as pl
 Insert the necessary scripts:
 ```
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://p.ninjacdn.co.uk/atlantisjs/v0.11.12/atlantis.js" type="text/javascript"></script>
-<link rel="stylesheet" href="http://p.ninjacdn.co.uk/atlantisjs/v0.11.12/atlantisjs.css" type="text/css" />
+<script src="http://p.ninjacdn.co.uk/atlantisjs/v0.11.13/atlantis.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://p.ninjacdn.co.uk/atlantisjs/v0.11.13/atlantisjs.css" type="text/css" />
 ```
 Add the relevant source code to your webpage:
 ```
-<video id="video1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="360" poster="http://p.ninjacdn.co.uk/atlantisjs/v0.11.12/atlantisLogoSplash.png"> 	
+<video id="video1" class="ajs-default-skin atlantis-js" controls preload="auto" width="640" height="360" poster="http://p.ninjacdn.co.uk/atlantisjs/v0.11.13/atlantisLogoSplash.png"> 	
     <source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360.mp4" type="video/mp4" data-resolution="360p">
 	<source src="http://media.reelcontent.co.uk/9e4c69c5ae2c215d/old-website/ReelContentVideoContentMarketing360p.ogg" type="video/ogg" data-resolution="360p">
 </video>
@@ -58,6 +58,10 @@ Include the following javascript embed code at some point lower down the page:
 ```
 
 ## Change log 
+
+###v0.11.13
+
++ add containerClass property to pause call to action
 
 ###v0.11.12
 

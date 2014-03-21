@@ -37,6 +37,9 @@ module AtlantisJS {
                         args.overlay.layer.container.removeClass("vjsVisible");
                         args.player.play();
                     });
+					if (typeof callToAction.containerClass !== 'undefined'){
+						args.overlay.layer.container[0].className += (" " + callToAction.containerClass);
+					}
                 }]}
         }
 

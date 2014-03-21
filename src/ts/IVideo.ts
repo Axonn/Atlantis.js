@@ -25,7 +25,7 @@ module AtlantisJS {
 
     export interface IEndOfVideoOptions {
         callToAction?: IEndOfVideoCallToAction;
-        relatedVideos?: IRelatedVideoOptions
+        relatedVideos?: IRelatedVideoOptions;
         template?: string;
     }
 
@@ -34,12 +34,12 @@ module AtlantisJS {
         path: (percentage: number) => {
             x: number;
             y: number;
-        }
+        };
     }
 
     export interface IHotspot {
         start: number;
-        position: IHotspotPosition[]
+        position: IHotspotPosition[];
         height: number;
         width: number;
         text: string;
@@ -58,6 +58,7 @@ module AtlantisJS {
     export interface IPauseCallToAction {
         text: string;
         template?: string;
+		containerClass?: string;
     }
 
     export interface ITitle {
