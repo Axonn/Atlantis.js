@@ -17,6 +17,7 @@ after_success:
 - version=$(head -n 1 version.txt)
 - oldversion=$(git describe --abbrev=0 --tags)
 - if [ "$version" != "$oldversion" ]; then
+- gem install --version 0.8.0 faraday
 - gem install travis-artifacts
 - if git checkout master; then git checkout -b master; fi
 - git config user.name "travis-ci"
