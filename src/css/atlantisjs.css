@@ -1757,6 +1757,9 @@ font-family:Verdana;
 	border-radius:3px;
 	border: rgb(255,255,255) solid 2px;
 	border: rgba(255,255,255,0.8) solid 2px;
+	transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform-origin: top left;
 }
 
 div.ajs-hotspot:before {

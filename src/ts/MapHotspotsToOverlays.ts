@@ -25,7 +25,7 @@ module AtlantisJS {
 
         var positionCalc = ComputeHotspotPositionFromFunctions(hotspot.position, hotspot.start);
 
-        var scaleToPlayerSize = (percentage: { x: number; y: number }, offset, player) => {
+        var scaleToPlayerSize = (percentage: { x: number; y: number; }, offset, player) => {
             var playerWidth = parseFloat(jQuery(player.el()).css("width").slice(0, -2));
             var playerHeight = parseFloat(jQuery(player.el()).css("height").slice(0, -2));
 
@@ -33,10 +33,10 @@ module AtlantisJS {
             var videoHeight = playerHeight - 2 * offset.y;
             var x = percentage.x * videoWidth;
             var y = percentage.y * videoHeight;
-            return { x: x, y: y }
+            return { x: x, y: y };
         }
 
-        var percentageToPixel = (percentage: { x: number; y: number }, player: VjsPluginComponents.IPlayer) => {
+        var percentageToPixel = (percentage: { x: number; y: number; }, player: VjsPluginComponents.IPlayer) => {
             var offset = player.getVideoOffset();
 
             var scaledPosition = scaleToPlayerSize(percentage, offset, player);
@@ -66,16 +66,19 @@ module AtlantisJS {
 
         var updateSize = (args) => {
             var newSize = scaleToPlayerSize({ x: hotspot.width, y: hotspot.height }, args.player.getVideoOffset(), args.player);
-            var hotspotElement = jQuery(args.overlay.layer.container.children()[0])
-            hotspotElement.css("width", newSize.x + "px");
-            hotspotElement.css("height", newSize.y + "px");
+            var hotspotElement = jQuery(args.overlay.layer.container.children()[0]);
 
-            var scaleElements = hotspotElement.find(".ajs-scale-text-80");
-            var ratio = newSize.x / parseInt(scaleElements.css("width").slice(0, -2));
-            var fontUnit = scaleElements.css("font-size").slice(-2);
-            var fontSize = parseInt(scaleElements.css("font-size").slice(0, -2));
-            hotspotElement.find(".ajs-scale-text-80").css("font-size", (ratio * fontSize * 0.8) + fontUnit);
+			//var scaleElements = hotspotElement.find(".ajs-scale-text-80");
+			var oldWidth = parseInt(hotspotElement.css("width").slice(0, -2));
+			var oldHeight = parseInt(hotspotElement.css("height").slice(0, -2));
 
+			var ratiox = newSize.x / oldWidth;
+			var ratioy = newSize.y / oldHeight;
+
+			hotspotElement.css("-ms-transform", "scale(" + ratiox + "," + ratioy + ")");
+            hotspotElement.css("-webkit-transform", "scale(" + ratiox + "," + ratioy + ")");
+			hotspotElement.css("transform", "scale(" + ratiox + "," + ratioy + ")");
+            hotspotElement.css("-webkit-transform-origin", "top left");
 
 
 
@@ -92,8 +95,10 @@ module AtlantisJS {
             updateSize(args);
 
             args.player.on("fullscreenchange", () => {
+				setTimeout(()=>{
                 updatePosition(args, args.player.currentTime());
-                updateSize(args);
+                updateSize(args)
+				},100);
             });
 
         });
@@ -113,16 +118,16 @@ module AtlantisJS {
             model: {
                 top: hotspot.position[0].path(0).y,
                 left: hotspot.position[0].path(0).x,
-                height: "10px",
-                width: "10px",
+                height: "200px",
+                width: "200px",
                 linkTarget: hotspot.linkTarget,
                 linkUrl: hotspot.linkUrl,
                 text: hotspot.text
             },
             displayTimes: [{
                 type: "switch",
-                start: () => { return hotspot.start },
-                end: () => { return hotspotEnd }
+                start: () => { return hotspot.start; },
+                end: () => { return hotspotEnd; }
             }],
             events: {
                 "onCreate": onCreateFuncs,
