@@ -1747,8 +1747,10 @@ div.vjsInvisible span.video-pause-call-to-action{
 div.ajs-hotspot{
 color:white;
 text-align:center;
-font-size:2.5em;
+font-size:3.5em;
 font-family:Verdana;
+width: 200px;
+height: 200px;
 	background:rgb(200,200,200);
 	background:rgba(200,200,200,0.8);
 	z-index:2;
@@ -1773,6 +1775,12 @@ div.ajs-hotspot:before {
 div.ajs-hotspot-insert{
 display: inline-block;
   vertical-align: middle;
+  
+
+}
+ 
+div.ajs-hotspot-insert a {
+		color: #fff;
 }
 
 div.ajs-hotspot:hover{

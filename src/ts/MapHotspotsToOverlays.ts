@@ -118,8 +118,6 @@ module AtlantisJS {
             model: {
                 top: hotspot.position[0].path(0).y,
                 left: hotspot.position[0].path(0).x,
-                height: "200px",
-                width: "200px",
                 linkTarget: hotspot.linkTarget,
                 linkUrl: hotspot.linkUrl,
                 text: hotspot.text
