@@ -1743,6 +1743,12 @@ div.vjsInvisible span.video-pause-call-to-action{
 .video-pause-toggle.vjsVisible span.video-pause-call-to-action{
 	opacity:1;
 }
+div.ajs-hotspot-positioning-element{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	z-index:2;
+}
 
 div.ajs-hotspot{
 color:white;
@@ -1775,8 +1781,6 @@ div.ajs-hotspot:before {
 div.ajs-hotspot-insert{
 display: inline-block;
   vertical-align: middle;
-  
-
 }
  
 div.ajs-hotspot-insert a {
