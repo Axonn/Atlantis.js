@@ -34,10 +34,30 @@ module AtlantisJS {
             var x = percentage.x * videoWidth;
             var y = percentage.y * videoHeight;
             return { x: x, y: y };
+        };
+
+		var getVideoOffset = (player) => {
+			var playerWidth = parseFloat(jQuery(player.el()).css("width").slice(0, -2));
+            var playerHeight = parseFloat(jQuery(player.el()).css("height").slice(0, -2));
+
+			var aspects = player.getVideo().aspectRatio.split(":");
+            var aspectRatio = parseFloat(aspects[0]) / parseFloat(aspects[1]);
+            var x = (playerWidth - (playerHeight * aspectRatio)) / 2;
+            var y = (playerHeight - (playerWidth / aspectRatio)) / 2;
+            if (x < 0) {
+                x = 0;
+            }
+            if (y < 0) {
+                y = 0;
+            }
+            return {
+                x: x,
+                y: y
+            };
         }
 
         var percentageToPixel = (percentage: { x: number; y: number; }, player: VjsPluginComponents.IPlayer) => {
-            var offset = player.getVideoOffset();
+            var offset = getVideoOffset(player);
 
             var scaledPosition = scaleToPlayerSize(percentage, offset, player);
             var x = scaledPosition.x + offset.x;
@@ -65,7 +85,7 @@ module AtlantisJS {
         }
 
         var updateSize = (args) => {
-            var newSize = scaleToPlayerSize({ x: hotspot.width, y: hotspot.height }, args.player.getVideoOffset(), args.player);
+            var newSize = scaleToPlayerSize({ x: hotspot.width, y: hotspot.height }, getVideoOffset(args.player), args.player);
             var hotspotElement = jQuery(args.overlay.layer.container.children()[0]);
 
 			//var scaleElements = hotspotElement.find(".ajs-scale-text-80");
@@ -97,7 +117,7 @@ module AtlantisJS {
             args.player.on("fullscreenchange", () => {
 				setTimeout(()=>{
                 updatePosition(args, args.player.currentTime());
-                updateSize(args)
+                updateSize(args);
 				},100);
             });
 
