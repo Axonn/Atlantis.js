@@ -31,6 +31,12 @@ At ReelContent we have developed as much functionality as possible to work as pl
 + Google Analytics Integration
 + Hotspots
 
+## How to build
+
+1. Install [Node.js](http://nodejs.org/)
+2. Install [bower](http://bower.io/) globally with "npm install -g bower"
+3. Run "grunt build"
+
 ## Quick Start
 
 Insert the necessary scripts:
